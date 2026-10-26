@@ -34,13 +34,13 @@ Llegenda: `[ ]` pendent · `[~]` en curs · `[x]` feta · `[!]` bloquejada (cal 
 
 ## Fase 3 – Migració
 
-- [ ] **F3-1** Script `scripts/migrate-wp` que llegeixi l'API REST de WordPress i converteixi l'HTML a Markdown en el format de Keystatic
-- [ ] **F3-2** Descarregar i optimitzar les imatges (màx. 2000 px, WebP/JPEG), i convertir els BMP
-- [ ] **F3-3** Convertir les taules de TablePress i les galeries d'Elementor
-- [ ] **F3-4** Pujar els 18 MP3 a Vercel Blob i desar-ne les URL
-- [ ] **F3-5** Pujar els 2 MP4 a YouTube (manual, per part de la coral) i desar-ne els ID
-- [ ] **F3-6** Revisió manual del contingut migrat (sobretot Història i Concerts)
-- [ ] **F3-7** Còpia de seguretat completa del WordPress (exportació XML + `uploads`)
+- [x] **F3-1** Script `scripts/migrate-wp` que llegeixi l'API REST de WordPress i converteixi l'HTML a Markdown en el format de Keystatic (vegeu `docs/migracio.md`)
+- [x] **F3-2** Descarregar i optimitzar les imatges (màx. 2000 px, WebP/JPEG), i convertir els BMP
+- [x] **F3-3** Convertir les taules de TablePress i les galeries d'Elementor
+- [!] **F3-4** Pujar els 18 MP3 a Vercel Blob i desar-ne les URL — script `npm run wp:upload-audio` fet; falta el _token_ `BLOB_READ_WRITE_TOKEN` del projecte de Vercel
+- [!] **F3-5** Pujar els 2 MP4 a YouTube (manual, per part de la coral) i desar-ne els ID — fitxers i concerts a `docs/migracio.md`
+- [~] **F3-6** Revisió manual del contingut migrat (sobretot Història i Concerts) — primera passada feta; llista de comprovació a `docs/migracio.md`
+- [~] **F3-7** Còpia de seguretat completa del WordPress (exportació XML + `uploads`) — API i `uploads` a `wp-backup/` (`npm run wp:backup`); falta l'exportació XML des de wp-admin i desar-ho tot en un lloc segur
 
 ## Fase 4 – Disseny i pàgines
 
@@ -59,7 +59,7 @@ Llegenda: `[ ]` pendent · `[~]` en curs · `[x]` feta · `[!]` bloquejada (cal 
 
 - [ ] **F5-1** Metadades, Open Graph, favicon i imatge social
 - [ ] **F5-2** `sitemap.xml`, `robots.txt` i dades estructurades (MusicGroup, Event)
-- [ ] **F5-3** Redireccions 301 (slugs `-2`, pàgines de concert fusionades, `/feed/`, `/wp-content/...`)
+- [ ] **F5-3** Redireccions 301 (slugs `-2`, subpàgines de concert fusionades (`programa-*`, `fotografies-*`, `enregistrament-*`, `fotomuntatge-2`), `historial-de-concerts`, `/feed/`, `/wp-content/...`)
 - [ ] **F5-4** Auditoria d'accessibilitat i Lighthouse ≥ 90
 - [ ] **F5-5** Afegir el domini a Vercel i canviar els DNS
 - [ ] **F5-6** Verificació final i baixa del WordPress

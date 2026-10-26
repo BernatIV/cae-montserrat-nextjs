@@ -70,8 +70,8 @@ Font: API REST de https://caemontserrat.cat/wp-json/wp/v2 (octubre 2026).
 
 ## Pendents de revisar a la migració
 
-- Taules de TablePress a `concerts` i altres pàgines.
-- Galeries d'Elementor (ordre i peus de foto).
+La migració ja s'ha fet: vegeu [`migracio.md`](migracio.md) per a la correspondència i la revisió pendent.
+
 - Slugs amb sufix `-2` (`discografia-2`, `fotomuntatge-2`): decidir si es netegen amb una redirecció 301.
 - Rutes de WordPress que cal redirigir o retirar: `/feed/`, `/wp-content/uploads/...`, `/wp-json/...`.
 - Abans de donar de baixa el WordPress, fer una còpia de seguretat completa (exportació XML + `wp-content/uploads`).

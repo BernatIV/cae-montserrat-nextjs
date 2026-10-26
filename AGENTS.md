@@ -66,6 +66,8 @@ Do not add new services, databases or paid dependencies without a new ADR in `do
 - Performance: aim for Lighthouse ≥ 90 on every category. Don't use heavy client-side libraries for simple UI.
 - No tracking cookies. Analytics is Vercel Web Analytics only (cookieless, see ADR 0008).
 - Images added to the repo must be optimised first (max ~2000 px on the long edge, WebP/AVIF or quality-compressed JPEG).
+- `content/` came from the WordPress migration (`scripts/migrate-wp/`, see `docs/migracio.md`) and is now the source of truth: never re-run `npm run wp:migrate -- --overwrite`, as it discards manual edits. `src/lib/content/content.test.ts` validates the real content (schema, image files, relationships).
+- Migration scripts are `.mts` files run directly by Node (type stripping): import with the `.mts` extension, use `import type`, and avoid TypeScript-only runtime syntax (enums, parameter properties).
 
 ## Security
 
@@ -91,4 +93,4 @@ keystatic.config.ts  Content model
 
 The task backlog is `docs/tasques.md` (no GitHub issues). When you start a task, mark it `[~]`; when you finish it, mark it `[x]` in the same commit as the change. Add new tasks there when you discover them.
 
-See also `docs/arquitectura.md` and the phases in `docs/visio.md`. Current phase: **Phase 3 – WordPress migration** (F2-6, creating the Keystatic GitHub App, is a pending manual step).
+See also `docs/arquitectura.md` and the phases in `docs/visio.md`. Current phase: **Phase 4 – design and pages** (pending manual steps: F2-6 Keystatic GitHub App, F3-4 Blob token, F3-5 YouTube uploads, F3-6 choir review, F3-7 XML export).
