@@ -1,24 +1,30 @@
 ---
 title: Política de cookies
 description: >-
-  Aquest lloc web utilitza cookies pròpies i de tercers amb finalitats tècniques
-  i d’anàlisi de navegació.
+  Aquest web no utilitza cookies de seguiment, d’anàlisi ni de publicitat, i per
+  això no us demana el consentiment.
 ---
-Aquest lloc web utilitza cookies pròpies i de tercers amb finalitats tècniques i d’anàlisi de navegació.
+Aquest web **no utilitza cookies de seguiment, d’anàlisi ni de publicitat**. Per això no mostrem cap bàner de consentiment.
 
 ## Què són les cookies?
 
-Les cookies són petits fitxers de text que es guarden al dispositiu de l’usuari quan visita una pàgina web.
+Les cookies són petits fitxers de text que un lloc web desa al vostre dispositiu per recordar informació entre visites.
 
-## Tipus de cookies que utilitzem
+## Estadístiques de visites sense cookies
 
-- **Essencials**: necessàries per al funcionament correcte del web.
-- **D’anàlisi**: permeten mesurar i analitzar el trànsit i l’ús del web (per exemple, Google Analytics si el feu servir).
+Per saber quantes persones visiten el web fem servir **Vercel Web Analytics**, que compta les visites de manera agregada i anònima, **sense cookies** i sense identificar ni seguir els visitants d’un lloc web a un altre.
 
-## Consentiment
+## Contingut de tercers
 
-Quan l’usuari accedeix a la web per primera vegada, apareix un banner que li permet acceptar, rebutjar o configurar l’ús de cookies.
+- **Vídeos de YouTube**: es mostren en mode de privacitat millorada (youtube-nocookie.com) i només es carreguen quan premeu el botó de reproducció. A partir d’aquell moment, YouTube pot aplicar les seves pròpies polítiques.
+- **Enllaços externs**: si seguiu un enllaç a un altre web, s’aplicaran les polítiques d’aquell web.
 
-## Configuració de cookies
+## Àrea d’edició
 
-L’usuari pot modificar les preferències de cookies en qualsevol moment mitjançant el banner de configuració i també al navegador (vegeu les opcions de Chrome, Firefox, Safari o Edge).
+Les persones de la Coral que editen el contingut (a l’adreça `/keystatic`) inicien la sessió amb GitHub. En aquest cas es fa servir una cookie tècnica, estrictament necessària per mantenir la sessió, que no s’utilitza per a cap altra finalitat.
+
+## Com gestionar les cookies
+
+Podeu consultar i esborrar les cookies des de la configuració del vostre navegador (Chrome, Firefox, Safari o Edge).
+
+Si teniu qualsevol dubte, escriviu-nos a [info@caemontserrat.cat](mailto:info@caemontserrat.cat).
