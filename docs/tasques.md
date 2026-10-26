@@ -18,8 +18,8 @@ Llegenda: `[ ]` pendent · `[~]` en curs · `[x]` feta · `[!]` bloquejada (cal 
 - [x] **F1-4** Playwright (e2e smoke: la portada carrega i té el títol)
 - [x] **F1-5** GitHub Actions: lint, typecheck, test i build (i format i e2e) a cada push a `main`
 - [x] **F1-6** Repo a GitHub com a remot (`origin`) i primer push a `main`
-- [~] **F1-7** Vincular el repo a Vercel (`.env.example` ja creat). _Cal fer-ho manualment: Vercel → Add New Project → importar `BernatIV/cae-montserrat-nextjs` (framework Next.js, sense variables)._
-- [ ] **F1-8** Vercel Web Analytics: instal·lar `@vercel/analytics`, afegir `<Analytics />` al layout arrel i activar Analytics al panell de Vercel (ADR 0008). Depèn de F1-7.
+- [x] **F1-7** Repo vinculat a Vercel (deploy automàtic des de `main`) i `.env.example` creat
+- [x] **F1-8** Vercel Web Analytics: `@vercel/analytics` amb `<Analytics />` al layout arrel (ADR 0008). _Cal activar-lo un cop al panell de Vercel: projecte → Analytics → Enable._
 
 ## Fase 2 – Model de contingut (Keystatic)
 

@@ -87,4 +87,4 @@ keystatic.config.ts  Content model
 
 The task backlog is `docs/tasques.md` (no GitHub issues). When you start a task, mark it `[~]`; when you finish it, mark it `[x]` in the same commit as the change. Add new tasks there when you discover them.
 
-See also `docs/arquitectura.md` and the phases in `docs/visio.md`. Current phase: **Phase 1 – technical skeleton** (only Vercel linking left), then Phase 2.
+See also `docs/arquitectura.md` and the phases in `docs/visio.md`. Current phase: **Phase 2 – content model (Keystatic)**.
