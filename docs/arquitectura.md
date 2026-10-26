@@ -22,7 +22,7 @@
 | Àudios                | Vercel Blob                                  | El contingut només en desa la URL                                                            |
 | Vídeos                | YouTube                                      | El contingut només en desa l'ID                                                              |
 | Formulari de contacte | Web3Forms o Formspree                        | Sense backend propi                                                                          |
-| CI                    | GitHub Actions                               | lint, typecheck, test i build a cada push a `main`                                           |
+| CI                    | GitHub Actions                               | `npm audit`, lint, typecheck, test i build a cada push a `main`                              |
 | Hosting               | Vercel (Hobby)                               | Desplegament automàtic des de `main`                                                         |
 | Analítica             | Vercel Web Analytics                         | Sense galetes, ni bàner de cookies (ADR 0008)                                                |
 | Domini                | caemontserrat.cat                            | DNS apuntat a Vercel en el llançament                                                        |

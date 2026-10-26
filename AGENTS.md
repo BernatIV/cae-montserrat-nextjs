@@ -39,6 +39,7 @@ Do not add new services, databases or paid dependencies without a new ADR in `do
 - Work in small, focused commits, one task per commit where possible.
 - Before you finish a task, run the following and fix any failures:
   ```
+  npm audit --audit-level=high --omit=dev
   npm run lint
   npm run format:check   # npm run format to fix
   npm run typecheck
@@ -47,6 +48,7 @@ Do not add new services, databases or paid dependencies without a new ADR in `do
   npm run test:e2e       # needs `npx playwright install chromium` once
   ```
   CI (`.github/workflows/ci.yml`) runs the same steps on every push to `main`.
+- Dependencies: when scaffolding or adding packages, always request the current release (`npx create-next-app@latest`, `npm install pkg@latest`); `npx` may otherwise reuse an outdated cached version. If `npm audit` reports a high or critical advisory, upgrade before pushing.
 - When you make a significant decision (new library, service or structural change), add an ADR to `docs/decisions/` using the existing format and numbering.
 - If behaviour, structure or commands change, update `AGENTS.md` and the related `docs/` file in the same commit.
 

@@ -12,7 +12,7 @@ Llegenda: `[ ]` pendent · `[~]` en curs · `[x]` feta · `[!]` bloquejada (cal 
 
 ## Fase 1 – Esquelet tècnic
 
-- [x] **F1-1** Crear el projecte Next.js (TypeScript strict, App Router, Tailwind, ESLint, `src/`) amb npm. _Nota: `create-next-app` no accepta directoris amb fitxers com `AGENTS.md`: cal generar-lo en una carpeta temporal i moure'l._
+- [x] **F1-1** Crear el projecte Next.js (TypeScript strict, App Router, Tailwind, ESLint, `src/`) amb npm. _Nota: `create-next-app` no accepta directoris amb fitxers com `AGENTS.md`: cal generar-lo en una carpeta temporal i moure'l. Cal fer servir `npx create-next-app@latest`: sense `@latest`, `npx` pot reutilitzar una versió antiga de la memòria cau (va passar amb Next.js 16.3.8, vegeu F1-9)._
 - [x] **F1-2** Prettier i scripts `lint`, `typecheck`, `test`, `build`, `format`
 - [x] **F1-3** Vitest (unitaris) amb un test d'exemple
 - [x] **F1-4** Playwright (e2e smoke: la portada carrega i té el títol)
@@ -20,6 +20,7 @@ Llegenda: `[ ]` pendent · `[~]` en curs · `[x]` feta · `[!]` bloquejada (cal 
 - [x] **F1-6** Repo a GitHub com a remot (`origin`) i primer push a `main`
 - [x] **F1-7** Repo vinculat a Vercel (deploy automàtic des de `main`) i `.env.example` creat
 - [x] **F1-8** Vercel Web Analytics: `@vercel/analytics` amb `<Analytics />` al layout arrel (ADR 0008). _Cal activar-lo un cop al panell de Vercel: projecte → Analytics → Enable._
+- [x] **F1-9** Actualitzar Next.js de 16.3.8 a 16.4.3 (avisos de seguretat crítics GHSA-2464-fhr4-w9xw, GHSA-p3m5-59mp-jv5r i GHSA-673q-mjm6-r5xr) i afegir `npm audit --audit-level=high --omit=dev` a la CI
 
 ## Fase 2 – Model de contingut (Keystatic)
 
