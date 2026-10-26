@@ -44,22 +44,22 @@ Llegenda: `[ ]` pendent · `[~]` en curs · `[x]` feta · `[!]` bloquejada (cal 
 
 ## Fase 4 – Disseny i pàgines
 
-- [ ] **F4-1** Sistema de disseny: paleta, tipografia, espaiats, components base
-- [ ] **F4-2** Capçalera amb menú responsive (amb submenús) i peu de pàgina
-- [ ] **F4-3** Components: galeria amb lightbox, reproductor d'àudio, incrustació de YouTube (lite), taula
-- [ ] **F4-4** Pàgina d'inici
-- [ ] **F4-5** Pàgines simples (Qui som, Història, Projectes, Directors)
-- [ ] **F4-6** Concerts: llistat i pàgina de detall (amb programa, fotos i enregistrament)
-- [ ] **F4-7** 75è Aniversari, Enregistraments, Discografia i Àudios
-- [ ] **F4-8** Formulari de contacte (Web3Forms o Formspree) amb antispam
-- [ ] **F4-9** Pàgines legals i política de privacitat actualitzada (sense cookies no essencials; esmentar Vercel Analytics i el servei de formulari)
-- [ ] **F4-10** Pàgina 404
+- [x] **F4-1** Sistema de disseny: paleta, tipografia, espaiats, components base (ADR 0011)
+- [x] **F4-2** Capçalera amb menú responsive (amb submenús) i peu de pàgina
+- [x] **F4-3** Components: galeria amb lightbox, reproductor d'àudio, incrustació de YouTube (lite), taula
+- [x] **F4-4** Pàgina d'inici
+- [x] **F4-5** Pàgines simples (Qui som, Història, Projectes, Directors)
+- [x] **F4-6** Concerts: llistat i pàgina de detall (amb programa, fotos i enregistrament)
+- [x] **F4-7** 75è Aniversari, Enregistraments, Discografia i Àudios
+- [!] **F4-8** Formulari de contacte (Web3Forms) amb antispam — fet (ADR 0004); bloquejada: cal obtenir la clau a web3forms.com amb el correu de la coral i posar-la a Vercel com a `NEXT_PUBLIC_FORM_ACCESS_KEY`. Fins llavors es mostra l'adreça de correu.
+- [~] **F4-9** Pàgines legals i política de privacitat actualitzada (sense cookies no essencials; esmentar Vercel Analytics i el servei de formulari) — textos reescrits; falta que la coral els revisi i els validi
+- [x] **F4-10** Pàgina 404
 
 ## Fase 5 – SEO, qualitat i llançament
 
-- [ ] **F5-1** Metadades, Open Graph, favicon i imatge social
-- [ ] **F5-2** `sitemap.xml`, `robots.txt` i dades estructurades (MusicGroup, Event)
-- [ ] **F5-3** Redireccions 301 (slugs `-2`, subpàgines de concert fusionades (`programa-*`, `fotografies-*`, `enregistrament-*`, `fotomuntatge-2`), `historial-de-concerts`, `/feed/`, `/wp-content/...`)
-- [ ] **F5-4** Auditoria d'accessibilitat i Lighthouse ≥ 90
-- [ ] **F5-5** Afegir el domini a Vercel i canviar els DNS
+- [x] **F5-1** Metadades, Open Graph, favicon i imatge social
+- [x] **F5-2** `sitemap.xml`, `robots.txt` i dades estructurades (MusicGroup, Event)
+- [~] **F5-3** Redireccions 301 (slugs `-2`, subpàgines de concert fusionades (`programa-*`, `fotografies-*`, `enregistrament-*`, `fotomuntatge-2`), `historial-de-concerts`, `/feed/`, `/wp-content/...`) — fetes a `src/lib/routes.ts` (permanents, 308); falta `/wp-content/...`, que s'ha de fer quan els àudios siguin a Blob (F3-4)
+- [~] **F5-4** Auditoria d'accessibilitat i Lighthouse ≥ 90 — axe (WCAG AA) sense errors als tests e2e; Lighthouse local: accessibilitat i SEO 100, bones pràctiques 96, rendiment 82–92 (simulat). Cal tornar-ho a mesurar a producció
+- [ ] **F5-5** Afegir el domini a Vercel i canviar els DNS (manual; abans cal F3-4, perquè els àudios encara apunten al WordPress)
 - [ ] **F5-6** Verificació final i baixa del WordPress

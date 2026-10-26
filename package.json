@@ -20,15 +20,18 @@
   "dependencies": {
     "@keystatic/core": "^0.6.9",
     "@keystatic/next": "^5.0.5",
+    "@markdoc/markdoc": "^0.4.0",
     "@vercel/analytics": "^2.0.1",
+    "image-size": "^2.0.4",
     "next": "16.4.3",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@markdoc/markdoc": "^0.4.0",
+    "@axe-core/playwright": "^4.14.0",
     "@playwright/test": "^1.64.1",
     "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.20",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/react": "^16.3.3",
     "@types/js-yaml": "^4.0.9",
@@ -52,6 +55,9 @@
     "vitest": "^5.0.5"
   },
   "overrides": {
+    "@tailwindcss/typography": {
+      "postcss-selector-parser": "^6.1.5"
+    },
     "@vercel/cli-config": {
       "zod": "^4.6.6"
     }

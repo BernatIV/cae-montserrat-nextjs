@@ -24,7 +24,7 @@ The whole project is built with AI agents, so keep the repository self-explanato
 | Images          | Stored in the repo, optimised, rendered with `next/image`                       |
 | Audio           | Vercel Blob (store only URLs in content)                                        |
 | Video           | YouTube embeds (store only video IDs in content)                                |
-| Contact form    | Web3Forms or Formspree (no custom backend)                                      |
+| Contact form    | Web3Forms (no custom backend, ADR 0004)                                         |
 | Hosting         | Vercel, auto-deploy from `main`                                                 |
 | Package manager | npm                                                                             |
 | Tests           | Vitest (unit), Playwright (e2e smoke)                                           |
@@ -57,12 +57,15 @@ Do not add new services, databases or paid dependencies without a new ADR in `do
 - Node.js 24 (see `.nvmrc`). Files use LF line endings (`.gitattributes`) and Prettier formatting.
 - UI strings live in `src/lib/i18n` (`t()`); don't put user-facing text directly in components.
 - Unit tests sit next to the code as `*.test.ts(x)`; e2e tests live in `e2e/`.
-- Keep the existing public URL slugs from the WordPress site (see `docs/inventari.md`). Any changed URL needs a 301 redirect in `next.config`.
+- Keep the existing public URL slugs from the WordPress site (see `docs/inventari.md`). Any changed URL needs a permanent redirect: add it to `legacyRedirects` in `src/lib/routes.ts` (used by `next.config.ts` and to normalise links in content). URLs have no trailing slash.
 - Prefer Server Components. Use `"use client"` only when interactivity requires it.
+- Public pages live in the `src/app/(site)/` route group (shared header/footer layout); the root layout stays minimal so `/keystatic` is not wrapped. All pages are static (SSG, `dynamicParams = false`); see ADR 0011.
+- Render Markdoc bodies with `MarkdocContent` from `src/components/markdoc.tsx`. Build page metadata with `pageMetadata()` from `src/lib/seo.ts`; dates with `src/lib/format.ts`.
+- Design tokens (`brand-*`, `accent-*`, `surface`, `container-site`, `container-prose`) are defined in `src/app/globals.css`; reuse them instead of arbitrary colours.
 - Read content only through the helpers in `src/lib/content` (add new helpers there, with tests). Never hard-code page content in components.
 - The content model lives in `keystatic.config.ts`. When you change it, update `docs/contingut.md`, the test fixtures in `src/lib/content/__fixtures__` and any affected content files in the same commit. Content files are written by Keystatic: don't run Prettier on `content/`.
 - Keystatic uses local mode only in development (it has no auth); production always uses GitHub mode (ADR 0009).
-- Accessibility: semantic HTML, alt text on every image, keyboard navigable, WCAG AA contrast.
+- Accessibility: semantic HTML, alt text on every image, keyboard navigable, WCAG AA contrast. `e2e/pages.spec.ts` runs axe on the key pages; add new pages there.
 - Performance: aim for Lighthouse ≥ 90 on every category. Don't use heavy client-side libraries for simple UI.
 - No tracking cookies. Analytics is Vercel Web Analytics only (cookieless, see ADR 0008).
 - Images added to the repo must be optimised first (max ~2000 px on the long edge, WebP/AVIF or quality-compressed JPEG).
@@ -84,8 +87,9 @@ content/             Keystatic-managed content (Markdown/YAML)
 public/              Static assets (images, favicons)
 scripts/             One-off scripts (e.g. WordPress migration)
 src/app/             Next.js routes
+src/app/(site)/      Public pages (shared layout)
 src/components/      UI components
-src/lib/             Helpers (content access, utils)
+src/lib/             Helpers (content, i18n, routes, SEO, formatting)
 keystatic.config.ts  Content model
 ```
 
@@ -93,4 +97,4 @@ keystatic.config.ts  Content model
 
 The task backlog is `docs/tasques.md` (no GitHub issues). When you start a task, mark it `[~]`; when you finish it, mark it `[x]` in the same commit as the change. Add new tasks there when you discover them.
 
-See also `docs/arquitectura.md` and the phases in `docs/visio.md`. Current phase: **Phase 4 – design and pages** (pending manual steps: F2-6 Keystatic GitHub App, F3-4 Blob token, F3-5 YouTube uploads, F3-6 choir review, F3-7 XML export).
+See also `docs/arquitectura.md` and the phases in `docs/visio.md`. Current phase: **Phase 5 – SEO, quality and launch** (pending manual steps: F2-6 Keystatic GitHub App, F3-4 Blob token, F3-5 YouTube uploads, F3-6/F4-9 choir review, F3-7 XML export, F4-8 Web3Forms key, F5-5 DNS after F3-4).

@@ -9,7 +9,7 @@
                                                                  │
                        Àudios: Vercel Blob ◀──URL──┤
                        Vídeos: YouTube     ◀──embed┤
-                       Formulari: Web3Forms/Formspree ◀── navegador
+                       Formulari: Web3Forms ◀── navegador
 ```
 
 ## Components
@@ -21,7 +21,7 @@
 | Imatges               | Repo (`public/` o `content/`) + `next/image` | Optimitzades abans de pujar-les                                                              |
 | Àudios                | Vercel Blob                                  | El contingut només en desa la URL                                                            |
 | Vídeos                | YouTube                                      | El contingut només en desa l'ID                                                              |
-| Formulari de contacte | Web3Forms o Formspree                        | Sense backend propi                                                                          |
+| Formulari de contacte | Web3Forms                                    | Sense backend propi (ADR 0004)                                                               |
 | CI                    | GitHub Actions                               | `npm audit`, lint, typecheck, test i build a cada push a `main`                              |
 | Hosting               | Vercel (Hobby)                               | Desplegament automàtic des de `main`                                                         |
 | Analítica             | Vercel Web Analytics                         | Sense galetes, ni bàner de cookies (ADR 0008)                                                |
@@ -42,9 +42,20 @@ El model és a `keystatic.config.ts` i es documenta amb detall a `contingut.md` 
 
 ## Rutes
 
-Es mantenen els slugs del WordPress (vegeu `inventari.md`). Les pàgines del tipus "programa", "fotografies" i "enregistrament" de cada concert poden passar a ser seccions de la pàgina del concert; en aquest cas, s'afegeixen redireccions 301.
+Es mantenen els slugs del WordPress (vegeu `inventari.md`), sense barra final. Detalls a l'ADR 0011.
+
+| Ruta                                                                           | Contingut                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| `/`                                                                            | Inici: portada, pròxims concerts, darrers concerts           |
+| `/qui-som`, `/historia`, `/projectes`, `/avis-legal`, `/politica-de-*`         | Pàgines simples (`src/app/(site)/[slug]`)                    |
+| `/directors`, `/75e-aniversari`, `/enregistraments`, `/discografia`, `/audios` | Pàgines pròpies                                              |
+| `/concerts`, `/concerts/<slug>`                                                | Llistat per dècades i fitxa (programa, fotos, àudios, vídeo) |
+| `/contacte`                                                                    | Dades de contacte i formulari                                |
+| `/sitemap.xml`, `/robots.txt`                                                  | Generats a partir del contingut                              |
+
+Les subpàgines "programa", "fotografies" i "enregistrament" dels concerts del 75è aniversari, i les pàgines reanomenades (`/discografia-2`, `/historial-de-concerts`, `/feed`), redirigeixen de manera permanent a la ruta nova. La llista és a `src/lib/routes.ts`.
 
 ## Entorns i variables
 
 - Desenvolupament: `npm run dev`, Keystatic en mode local (desa als fitxers, sense commits).
-- Producció: Vercel, Keystatic en mode GitHub. Variables documentades a `.env.example` (claus de Keystatic GitHub App, Vercel Blob, formulari).
+- Producció: Vercel, Keystatic en mode GitHub. Variables documentades a `.env.example` (claus de Keystatic GitHub App, Vercel Blob, clau del formulari `NEXT_PUBLIC_FORM_ACCESS_KEY` i URL canònica `NEXT_PUBLIC_SITE_URL`).

@@ -41,7 +41,7 @@ Cada pàgina té els mateixos camps bàsics:
 
 Fitxer `content/configuracio.yaml`:
 
-- **Menú principal**: text i enllaç de cada element, amb submenú opcional. Els enllaços interns comencen i acaben amb `/` (p. ex. `/qui-som/`).
+- **Menú principal**: text i enllaç de cada element, amb submenú opcional. Els enllaços interns comencen amb `/` (p. ex. `/qui-som`). Els enllaços antics del WordPress (amb `/` final o amb el domini complet) també funcionen: el web els converteix a la ruta nova.
 - **Xarxes socials**: xarxa (Facebook, Instagram, YouTube, X, Spotify o altres) i URL.
 - **Dades de contacte**: correu, telèfon i adreça.
 

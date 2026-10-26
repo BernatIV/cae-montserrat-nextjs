@@ -1,17 +1,61 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Design tokens. Brand blue comes from the choir logo (#060097).
+ * All text/background pairs used on the site meet WCAG AA contrast.
+ */
+@theme {
+  --color-brand-50: #f3f2ff;
+  --color-brand-100: #e6e4ff;
+  --color-brand-200: #cbc7ff;
+  --color-brand-300: #a29bff;
+  --color-brand-500: #3d33d6;
+  --color-brand-600: #2117b8;
+  --color-brand-700: #060097;
+  --color-brand-800: #05007a;
+  --color-brand-900: #0b0954;
+  --color-brand-950: #070533;
+  --color-accent-300: #ffdf8f;
+  --color-accent-400: #ffcd57;
+  --color-surface: #f6f5fb;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-white font-sans text-slate-800;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-balance;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: system-ui, sans-serif;
+@utility container-site {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+@utility container-prose {
+  @apply mx-auto w-full max-w-3xl px-4 sm:px-6;
 }
