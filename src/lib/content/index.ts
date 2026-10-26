@@ -83,10 +83,18 @@ export async function getDiscography(reader: ContentReader = getDefaultReader())
     .sort((a, b) => b.year - a.year || a.title.localeCompare(b.title, "ca"));
 }
 
-/** All audios, newest recording first. */
+/** All audios, newest recording first; tracks of the same album in track order. */
 export async function getAudios(reader: ContentReader = getDefaultReader()) {
   const entries = await reader.collections.audios.all();
-  return sortByDateDesc(entries.map(({ slug, entry }) => ({ ...entry, slug })));
+  const byTrack = entries
+    .map(({ slug, entry }) => ({ ...entry, slug }))
+    .sort(
+      (a, b) =>
+        (a.album ?? "").localeCompare(b.album ?? "", "ca") ||
+        (a.track ?? Infinity) - (b.track ?? Infinity) ||
+        a.title.localeCompare(b.title, "ca"),
+    );
+  return sortByDateDesc(byTrack);
 }
 
 async function readMany<T extends object>(

@@ -52,7 +52,7 @@ Fitxer `content/configuracio.yaml`:
 | Concerts    | `content/concerts/`    | Títol, slug, data, hora (HH:MM), lloc, població, resum, cartell + text alt., programa (obra, autor, notes), galeria (foto, text alt., peu), àudios, vídeo de YouTube, contingut |
 | Directors   | `content/directors/`   | Nom, període (p. ex. 1952–1970), any d'inici (per ordenar), foto + text alt., biografia                                                                                         |
 | Discografia | `content/discografia/` | Títol, any, portada + text alt., pistes (títol, autor), descripció                                                                                                              |
-| Àudios      | `content/audios/`      | Títol, autor, intèrprets, URL de l'àudio (Vercel Blob), data, concert relacionat, descripció                                                                                    |
+| Àudios      | `content/audios/`      | Títol, autor, intèrprets, URL de l'àudio (Vercel Blob), data, concert relacionat, disc i número de pista, descripció                                                            |
 
 Els concerts, directors i discos es desen com a `.md` (dades a la capçalera i text a sota). Els àudios, com a `.yaml`.
 
@@ -62,9 +62,9 @@ El **slug** és l'adreça de la pàgina (p. ex. `concert-de-rubi`). Es genera a 
 
 - **Fotos**: abans de pujar-les, redueix-les a uns 2000 px de costat llarg (WebP o JPEG comprimit) i posa-hi sempre un text alternatiu (descripció). Keystatic no pot obligar a omplir-lo només quan hi ha foto, així que cal recordar-ho.
 - **Vídeos**: puja'ls al canal de YouTube de la coral i enganxa'n només l'ID: els 11 caràcters després de `v=` (p. ex. a `https://www.youtube.com/watch?v=dQw4w9WgXcQ`, l'ID és `dQw4w9WgXcQ`).
-- **Àudios**: es pugen a Vercel Blob i al contingut només se'n desa la URL (procediment de pujada a la Fase 3). Després crea l'àudio a la col·lecció **Àudios** i enllaça'l des del concert.
+- **Àudios**: es pugen a Vercel Blob (des del panell de Vercel, _Storage → Blob → Upload_) i al contingut només se'n desa la URL pública. Després crea l'àudio a la col·lecció **Àudios** i enllaça'l des del concert o del disc (amb el número de pista).
 - **Slugs**: no canviïs el slug d'una pàgina que ja està publicada sense avisar: caldria afegir una redirecció 301.
-- **Ordre**: els concerts i els àudios s'ordenen per data, els directors per any d'inici i els discos per any. No cal ordenar-los a mà.
+- **Ordre**: els concerts i els àudios s'ordenen per data (els àudios d'un disc, per número de pista), els directors per any d'inici i els discos per any. No cal ordenar-los a mà.
 
 ## Editar amb IA o a mà
 

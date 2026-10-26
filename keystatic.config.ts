@@ -306,6 +306,12 @@ export default config({
         }),
         date: fields.date({ label: "Data de l'enregistrament" }),
         concert: fields.relationship({ label: "Concert", collection: "concerts" }),
+        album: fields.relationship({ label: "Disc", collection: "discografia" }),
+        track: fields.integer({
+          label: "Número de pista",
+          description: "Ordre dins del disc (opcional).",
+          validation: { min: 1 },
+        }),
         description: fields.text({ label: "Descripció", multiline: true }),
       },
     }),

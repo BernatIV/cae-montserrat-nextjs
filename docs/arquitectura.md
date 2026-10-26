@@ -35,7 +35,7 @@
 | Concerts            | col·lecció | `content/concerts/<slug>.md`    | títol, data, lloc, descripció, programa, galeria, àudios, vídeo YouTube |
 | Directors           | col·lecció | `content/directors/<slug>.md`   | nom, període, any d'inici, foto, biografia                              |
 | Discografia         | col·lecció | `content/discografia/<slug>.md` | títol, any, portada, descripció, pistes                                 |
-| Àudios              | col·lecció | `content/audios/<slug>.yaml`    | títol, autor, URL de Blob, concert relacionat                           |
+| Àudios              | col·lecció | `content/audios/<slug>.yaml`    | títol, autor, URL de Blob, concert, disc i pista                        |
 | Configuració global | singleton  | `content/configuracio.yaml`     | menú, xarxes socials, dades de contacte                                 |
 
 El model és a `keystatic.config.ts` i es documenta amb detall a `contingut.md` (decisions a l'ADR 0009). El codi només llegeix el contingut a través dels helpers de `src/lib/content`. El panell és a `/keystatic` i l'API a `/api/keystatic`.

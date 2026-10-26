@@ -93,9 +93,10 @@ describe("content helpers", () => {
     expect(albums[1]?.tracks).toEqual([{ title: "Virolai", composer: "" }]);
   });
 
-  it("lists audios", async () => {
+  it("lists audios, dated first and album tracks in order", async () => {
     const audios = await getAudios(reader);
-    expect(audios).toHaveLength(1);
+    expect(audios.map((a) => a.slug)).toEqual(["ave-maria", "pista-u", "pista-dos"]);
     expect(audios[0]).toMatchObject({ slug: "ave-maria", concert: "concert-de-montserrat" });
+    expect(audios[1]).toMatchObject({ album: "segon-disc", track: 1 });
   });
 });
