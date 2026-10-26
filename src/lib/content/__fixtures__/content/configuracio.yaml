@@ -1,0 +1,16 @@
+menu:
+  - label: Inici
+    href: /
+    children: []
+  - label: 75è Aniversari
+    href: /75e-aniversari/
+    children:
+      - label: Concert de Rubí
+        href: /concert-de-rubi/
+social:
+  - network: youtube
+    url: https://www.youtube.com/@caemontserrat
+contact:
+  email: info@example.com
+  phone: ''
+  address: ''

@@ -57,7 +57,9 @@ Do not add new services, databases or paid dependencies without a new ADR in `do
 - Unit tests sit next to the code as `*.test.ts(x)`; e2e tests live in `e2e/`.
 - Keep the existing public URL slugs from the WordPress site (see `docs/inventari.md`). Any changed URL needs a 301 redirect in `next.config`.
 - Prefer Server Components. Use `"use client"` only when interactivity requires it.
-- Read content only through the Keystatic reader or helpers in `src/lib/content`. Never hard-code page content in components.
+- Read content only through the helpers in `src/lib/content` (add new helpers there, with tests). Never hard-code page content in components.
+- The content model lives in `keystatic.config.ts`. When you change it, update `docs/contingut.md`, the test fixtures in `src/lib/content/__fixtures__` and any affected content files in the same commit. Content files are written by Keystatic: don't run Prettier on `content/`.
+- Keystatic uses local mode only in development (it has no auth); production always uses GitHub mode (ADR 0009).
 - Accessibility: semantic HTML, alt text on every image, keyboard navigable, WCAG AA contrast.
 - Performance: aim for Lighthouse ≥ 90 on every category. Don't use heavy client-side libraries for simple UI.
 - No tracking cookies. Analytics is Vercel Web Analytics only (cookieless, see ADR 0008).
@@ -87,4 +89,4 @@ keystatic.config.ts  Content model
 
 The task backlog is `docs/tasques.md` (no GitHub issues). When you start a task, mark it `[~]`; when you finish it, mark it `[x]` in the same commit as the change. Add new tasks there when you discover them.
 
-See also `docs/arquitectura.md` and the phases in `docs/visio.md`. Current phase: **Phase 2 – content model (Keystatic)**.
+See also `docs/arquitectura.md` and the phases in `docs/visio.md`. Current phase: **Phase 3 – WordPress migration** (F2-6, creating the Keystatic GitHub App, is a pending manual step).

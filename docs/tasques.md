@@ -23,13 +23,13 @@ Llegenda: `[ ]` pendent · `[~]` en curs · `[x]` feta · `[!]` bloquejada (cal 
 
 ## Fase 2 – Model de contingut (Keystatic)
 
-- [ ] **F2-1** Instal·lar Keystatic (mode local en dev, GitHub en prod) i la ruta `/keystatic`
-- [ ] **F2-2** Singletons: Inici, Qui som, Història, Projectes, 75è Aniversari, Enregistraments, Contacte, textos legals, configuració global (menú, xarxes, contacte)
-- [ ] **F2-3** Col·lecció `concerts` (data, lloc, descripció, programa, galeria, àudios, vídeo YouTube)
-- [ ] **F2-4** Col·leccions `directors`, `discografia` i `audios`
-- [ ] **F2-5** Helpers de lectura a `src/lib/content` amb tests
-- [ ] **F2-6** Crear la GitHub App de Keystatic i documentar-ne les variables
-- [ ] **F2-7** Completar `docs/contingut.md` amb la guia d'edició definitiva
+- [x] **F2-1** Instal·lar Keystatic (mode local en dev, GitHub en prod) i la ruta `/keystatic`
+- [x] **F2-2** Singletons: Inici, Qui som, Història, Projectes, 75è Aniversari, Enregistraments, Contacte, textos legals, configuració global (menú, xarxes, contacte)
+- [x] **F2-3** Col·lecció `concerts` (data, lloc, descripció, programa, galeria, àudios, vídeo YouTube)
+- [x] **F2-4** Col·leccions `directors`, `discografia` i `audios`
+- [x] **F2-5** Helpers de lectura a `src/lib/content` amb tests
+- [!] **F2-6** Crear la GitHub App de Keystatic i documentar-ne les variables. _Documentat a `docs/contingut.md`. Bloquejada: la creació de l'app i les variables a Vercel les ha de fer manualment el propietari del repositori (cal iniciar sessió a GitHub i Vercel). Fins llavors, `/api/keystatic` respon 503 en producció._
+- [x] **F2-7** Completar `docs/contingut.md` amb la guia d'edició definitiva
 
 ## Fase 3 – Migració
 

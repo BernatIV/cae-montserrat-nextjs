@@ -1,0 +1,43 @@
+menu:
+  - label: Inici
+    href: /
+    children: []
+  - label: Qui som
+    href: /qui-som/
+    children: []
+  - label: Història
+    href: /historia/
+    children: []
+  - label: Concerts
+    href: /concerts/
+    children: []
+  - label: Directors
+    href: /directors/
+    children: []
+  - label: 75è Aniversari
+    href: /75e-aniversari/
+    children:
+      - label: Concert de Montserrat
+        href: /concert-de-montserrat/
+      - label: Concert de la Bonanova
+        href: /concert-de-la-bonanova/
+      - label: Concert de Rubí
+        href: /concert-de-rubi/
+  - label: Enregistraments
+    href: /enregistraments/
+    children:
+      - label: Discografia
+        href: /discografia-2/
+      - label: Àudios
+        href: /audios/
+  - label: Contacte
+    href: /contacte/
+    children: []
+  - label: Projectes
+    href: /projectes/
+    children: []
+social: []
+contact:
+  email: ''
+  phone: ''
+  address: ''

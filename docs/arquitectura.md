@@ -27,18 +27,18 @@
 | Analítica             | Vercel Web Analytics                         | Sense galetes, ni bàner de cookies (ADR 0008)                                                |
 | Domini                | caemontserrat.cat                            | DNS apuntat a Vercel en el llançament                                                        |
 
-## Model de contingut (previst)
+## Model de contingut
 
-| Tipus               | Keystatic  | Camps principals                                                        |
-| ------------------- | ---------- | ----------------------------------------------------------------------- |
-| Pàgines simples     | singletons | títol, cos (Markdown), imatge destacada, SEO                            |
-| Concerts            | col·lecció | títol, data, lloc, descripció, programa, galeria, àudios, vídeo YouTube |
-| Directors           | col·lecció | nom, període, foto, biografia                                           |
-| Discografia         | col·lecció | títol, any, portada, descripció, pistes                                 |
-| Àudios              | col·lecció | títol, obra/autor, URL de Blob, concert relacionat                      |
-| Configuració global | singleton  | menú, xarxes socials, dades de contacte                                 |
+| Tipus               | Keystatic  | Fitxers                         | Camps principals                                                        |
+| ------------------- | ---------- | ------------------------------- | ----------------------------------------------------------------------- |
+| Pàgines simples     | singletons | `content/pagines/<slug>.md`     | títol, resum, imatge destacada, cos (Markdoc)                           |
+| Concerts            | col·lecció | `content/concerts/<slug>.md`    | títol, data, lloc, descripció, programa, galeria, àudios, vídeo YouTube |
+| Directors           | col·lecció | `content/directors/<slug>.md`   | nom, període, any d'inici, foto, biografia                              |
+| Discografia         | col·lecció | `content/discografia/<slug>.md` | títol, any, portada, descripció, pistes                                 |
+| Àudios              | col·lecció | `content/audios/<slug>.yaml`    | títol, autor, URL de Blob, concert relacionat                           |
+| Configuració global | singleton  | `content/configuracio.yaml`     | menú, xarxes socials, dades de contacte                                 |
 
-El model definitiu es fixa a la Fase 2 i es documenta a `contingut.md`.
+El model és a `keystatic.config.ts` i es documenta amb detall a `contingut.md` (decisions a l'ADR 0009). El codi només llegeix el contingut a través dels helpers de `src/lib/content`. El panell és a `/keystatic` i l'API a `/api/keystatic`.
 
 ## Rutes
 
@@ -46,5 +46,5 @@ Es mantenen els slugs del WordPress (vegeu `inventari.md`). Les pàgines del tip
 
 ## Entorns i variables
 
-- Desenvolupament: `npm run dev`, Keystatic en mode local.
-- Producció: Vercel. Variables documentades a `.env.example` (claus de Keystatic GitHub App, Vercel Blob, formulari).
+- Desenvolupament: `npm run dev`, Keystatic en mode local (desa als fitxers, sense commits).
+- Producció: Vercel, Keystatic en mode GitHub. Variables documentades a `.env.example` (claus de Keystatic GitHub App, Vercel Blob, formulari).
