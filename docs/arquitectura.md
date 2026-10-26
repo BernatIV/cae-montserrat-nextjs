@@ -24,6 +24,7 @@
 | Formulari de contacte | Web3Forms o Formspree                        | Sense backend propi                                                                          |
 | CI                    | GitHub Actions                               | lint, typecheck, test i build a cada push a `main`                                           |
 | Hosting               | Vercel (Hobby)                               | Desplegament automàtic des de `main`                                                         |
+| Analítica             | Vercel Web Analytics                         | Sense galetes, ni bàner de cookies (ADR 0008)                                                |
 | Domini                | caemontserrat.cat                            | DNS apuntat a Vercel en el llançament                                                        |
 
 ## Model de contingut (previst)

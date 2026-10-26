@@ -19,6 +19,7 @@ Llegenda: `[ ]` pendent · `[~]` en curs · `[x]` feta · `[!]` bloquejada (cal 
 - [x] **F1-5** GitHub Actions: lint, typecheck, test i build (i format i e2e) a cada push a `main`
 - [x] **F1-6** Repo a GitHub com a remot (`origin`) i primer push a `main`
 - [~] **F1-7** Vincular el repo a Vercel (`.env.example` ja creat). _Cal fer-ho manualment: Vercel → Add New Project → importar `BernatIV/cae-montserrat-nextjs` (framework Next.js, sense variables)._
+- [ ] **F1-8** Vercel Web Analytics: instal·lar `@vercel/analytics`, afegir `<Analytics />` al layout arrel i activar Analytics al panell de Vercel (ADR 0008). Depèn de F1-7.
 
 ## Fase 2 – Model de contingut (Keystatic)
 
@@ -50,7 +51,7 @@ Llegenda: `[ ]` pendent · `[~]` en curs · `[x]` feta · `[!]` bloquejada (cal 
 - [ ] **F4-6** Concerts: llistat i pàgina de detall (amb programa, fotos i enregistrament)
 - [ ] **F4-7** 75è Aniversari, Enregistraments, Discografia i Àudios
 - [ ] **F4-8** Formulari de contacte (Web3Forms o Formspree) amb antispam
-- [ ] **F4-9** Pàgines legals i política de privacitat actualitzada (sense cookies no essencials)
+- [ ] **F4-9** Pàgines legals i política de privacitat actualitzada (sense cookies no essencials; esmentar Vercel Analytics i el servei de formulari)
 - [ ] **F4-10** Pàgina 404
 
 ## Fase 5 – SEO, qualitat i llançament

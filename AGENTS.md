@@ -29,6 +29,7 @@ The whole project is built with AI agents, so keep the repository self-explanato
 | Package manager | npm                                                                             |
 | Tests           | Vitest (unit), Playwright (e2e smoke)                                           |
 | CI              | GitHub Actions on every push to `main`                                          |
+| Analytics       | Vercel Web Analytics (cookieless, `@vercel/analytics`)                          |
 
 Do not add new services, databases or paid dependencies without a new ADR in `docs/decisions/`.
 
@@ -59,7 +60,7 @@ Do not add new services, databases or paid dependencies without a new ADR in `do
 - Read content only through the Keystatic reader or helpers in `src/lib/content`. Never hard-code page content in components.
 - Accessibility: semantic HTML, alt text on every image, keyboard navigable, WCAG AA contrast.
 - Performance: aim for Lighthouse ≥ 90 on every category. Don't use heavy client-side libraries for simple UI.
-- No tracking cookies. Analytics, if any, must be cookieless (e.g. Vercel Analytics).
+- No tracking cookies. Analytics is Vercel Web Analytics only (cookieless, see ADR 0008).
 - Images added to the repo must be optimised first (max ~2000 px on the long edge, WebP/AVIF or quality-compressed JPEG).
 
 ## Security
