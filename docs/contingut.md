@@ -100,10 +100,10 @@ Text del concert en **Markdown**.
 Ho ha de fer una persona amb permisos d'administració al repositori `BernatIV/cae-montserrat-nextjs`.
 
 1. Crea un fitxer `.env.local` amb `NEXT_PUBLIC_KEYSTATIC_STORAGE=github` i executa `npm run dev`.
-2. Obre `http://localhost:3000/keystatic`. Keystatic mostra la pàgina de configuració: posa-hi un nom per a l'app (p. ex. `cae-montserrat-keystatic`) i prem **Create GitHub App**.
+2. Obre `http://localhost:3000/keystatic`. Keystatic et redirigeix a `http://127.0.0.1:3000/keystatic` (és normal: GitHub ho exigeix per a l'inici de sessió en local) i mostra la pàgina de configuració. Si et demana l'URL de la web desplegada, posa-hi la de Vercel (`https://<projecte>.vercel.app`): així ja s'afegeix el _callback_ de producció. Posa un nom a l'app (p. ex. `cae-montserrat-keystatic`) i prem **Create GitHub App**.
 3. GitHub demana confirmació i torna a Keystatic, que escriu les credencials al fitxer `.env` del projecte (ignorat per git).
 4. Instal·la l'app al repositori: GitHub → Settings → Developer settings → GitHub Apps → l'app → **Install App** → només el repositori `cae-montserrat-nextjs`.
-5. A la configuració de l'app (pestanya _General_), afegeix com a **Callback URL** les adreces de producció:
+5. A la configuració de l'app (pestanya _General_), comprova que hi ha com a **Callback URL** les adreces de producció i, si no, afegeix-les:
    - `https://<projecte>.vercel.app/api/keystatic/github/oauth/callback`
    - `https://caemontserrat.cat/api/keystatic/github/oauth/callback` (quan es canviï el domini, Fase 5)
 6. Copia aquestes variables del fitxer `.env` a Vercel (projecte → Settings → Environment Variables, entorn _Production_) i torna a desplegar:
