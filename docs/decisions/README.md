@@ -23,3 +23,4 @@ Cada decisió important es registra en un fitxer numerat `NNNN-titol.md` amb aqu
 | [0007](0007-npm.md)                | npm com a gestor de paquets                             | Acceptada |
 | [0008](0008-vercel-analytics.md)   | Vercel Web Analytics (sense galetes)                    | Acceptada |
 | [0009](0009-model-contingut.md)    | Model de contingut de Keystatic                         | Acceptada |
+| [0010](0010-migracio-wordpress.md) | Migració de WordPress amb scripts propis                | Acceptada |

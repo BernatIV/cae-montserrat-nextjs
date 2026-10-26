@@ -44,6 +44,9 @@ next-env.d.ts
 # IDE
 .idea/
 
+# WordPress backup and migration cache (scripts/migrate-wp)
+/wp-backup/
+
 # playwright
 /test-results/
 /playwright-report/
