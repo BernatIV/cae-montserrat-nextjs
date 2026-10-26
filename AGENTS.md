@@ -79,4 +79,6 @@ keystatic.config.ts  Content model
 
 ## Roadmap
 
-See `docs/arquitectura.md` and the phases in `docs/visio.md`. Current phase: **Phase 0 – foundations (docs and agent setup)**.
+The task backlog is `docs/tasques.md` (no GitHub issues). When you start a task, mark it `[~]`; when you finish it, mark it `[x]` in the same commit as the change. Add new tasks there when you discover them.
+
+See also `docs/arquitectura.md` and the phases in `docs/visio.md`. Current phase: **Phase 1 – technical skeleton**.

@@ -23,7 +23,7 @@ La Coral d'Antics Escolans de Montserrat (CAE Montserrat) té una web a https://
 ## Fases
 | Fase | Contingut |
 |---|---|
-| 0 | Bases: `AGENTS.md`, documentació, issues |
+| 0 | Bases: `AGENTS.md`, documentació, backlog |
 | 1 | Esquelet tècnic: Next.js, qualitat (lint, tests), CI, Vercel |
 | 2 | Model de contingut amb Keystatic |
 | 3 | Migració del contingut de WordPress |
@@ -32,5 +32,5 @@ La Coral d'Antics Escolans de Montserrat (CAE Montserrat) té una web a https://
 
 ## Forma de treballar
 - Tot es fa directament a `main`. La CI ha de passar a cada push, i cada push publica a producció.
-- Tasques petites, una per commit.
+- Tasques petites, una per commit. El backlog és `docs/tasques.md`.
 - Cada decisió important queda registrada a `docs/decisions/`.
