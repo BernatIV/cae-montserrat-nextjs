@@ -16,19 +16,19 @@ The whole project is built with AI agents, so keep the repository self-explanato
 
 ## Tech stack
 
-| Area | Choice |
-|---|---|
-| Framework | Next.js (App Router), React, TypeScript (`strict`) |
-| Styling | Tailwind CSS |
-| Content | Keystatic (Markdown/YAML in `content/`, local mode in dev, GitHub mode in prod) |
-| Images | Stored in the repo, optimised, rendered with `next/image` |
-| Audio | Vercel Blob (store only URLs in content) |
-| Video | YouTube embeds (store only video IDs in content) |
-| Contact form | Web3Forms or Formspree (no custom backend) |
-| Hosting | Vercel, auto-deploy from `main` |
-| Package manager | npm |
-| Tests | Vitest (unit), Playwright (e2e smoke) |
-| CI | GitHub Actions on every push to `main` |
+| Area            | Choice                                                                          |
+| --------------- | ------------------------------------------------------------------------------- |
+| Framework       | Next.js (App Router), React, TypeScript (`strict`)                              |
+| Styling         | Tailwind CSS                                                                    |
+| Content         | Keystatic (Markdown/YAML in `content/`, local mode in dev, GitHub mode in prod) |
+| Images          | Stored in the repo, optimised, rendered with `next/image`                       |
+| Audio           | Vercel Blob (store only URLs in content)                                        |
+| Video           | YouTube embeds (store only video IDs in content)                                |
+| Contact form    | Web3Forms or Formspree (no custom backend)                                      |
+| Hosting         | Vercel, auto-deploy from `main`                                                 |
+| Package manager | npm                                                                             |
+| Tests           | Vitest (unit), Playwright (e2e smoke)                                           |
+| CI              | GitHub Actions on every push to `main`                                          |
 
 Do not add new services, databases or paid dependencies without a new ADR in `docs/decisions/`.
 
@@ -39,16 +39,21 @@ Do not add new services, databases or paid dependencies without a new ADR in `do
 - Before you finish a task, run the following and fix any failures:
   ```
   npm run lint
+  npm run format:check   # npm run format to fix
   npm run typecheck
   npm run test
   npm run build
+  npm run test:e2e       # needs `npx playwright install chromium` once
   ```
-  (These scripts are created in Phase 1. Until then, there's nothing to run.)
+  CI (`.github/workflows/ci.yml`) runs the same steps on every push to `main`.
 - When you make a significant decision (new library, service or structural change), add an ADR to `docs/decisions/` using the existing format and numbering.
 - If behaviour, structure or commands change, update `AGENTS.md` and the related `docs/` file in the same commit.
 
 ## Conventions
 
+- Node.js 24 (see `.nvmrc`). Files use LF line endings (`.gitattributes`) and Prettier formatting.
+- UI strings live in `src/lib/i18n` (`t()`); don't put user-facing text directly in components.
+- Unit tests sit next to the code as `*.test.ts(x)`; e2e tests live in `e2e/`.
 - Keep the existing public URL slugs from the WordPress site (see `docs/inventari.md`). Any changed URL needs a 301 redirect in `next.config`.
 - Prefer Server Components. Use `"use client"` only when interactivity requires it.
 - Read content only through the Keystatic reader or helpers in `src/lib/content`. Never hard-code page content in components.
@@ -81,4 +86,4 @@ keystatic.config.ts  Content model
 
 The task backlog is `docs/tasques.md` (no GitHub issues). When you start a task, mark it `[~]`; when you finish it, mark it `[x]` in the same commit as the change. Add new tasks there when you discover them.
 
-See also `docs/arquitectura.md` and the phases in `docs/visio.md`. Current phase: **Phase 1 – technical skeleton**.
+See also `docs/arquitectura.md` and the phases in `docs/visio.md`. Current phase: **Phase 1 – technical skeleton** (only Vercel linking left), then Phase 2.
