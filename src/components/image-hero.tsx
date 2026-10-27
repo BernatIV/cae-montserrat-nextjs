@@ -83,7 +83,7 @@ export function ImageHero({ image, imageAlt, fit, next, children }: ImageHeroPro
             href={next.href}
             aria-label={next.label}
             title={next.label}
-            className="rounded-full p-2 text-accent transition hover:text-on-chrome motion-safe:animate-bounce"
+            className="rounded-full p-2 text-accent transition hover:text-on-chrome"
           >
             <svg
               aria-hidden="true"
