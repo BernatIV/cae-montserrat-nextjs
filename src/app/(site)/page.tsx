@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ConcertCard } from "@/components/concert-card";
+import { ImageHero } from "@/components/image-hero";
 import { JsonLd } from "@/components/json-ld";
 import { MarkdocContent } from "@/components/markdoc";
 import { UpcomingFilter } from "@/components/upcoming-filter";
@@ -28,51 +28,30 @@ export default async function Home() {
   ]);
   const { upcoming, past } = splitByDate(concerts);
   const recent = past.slice(0, 3);
+  const heroText = (
+    <>
+      <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
+        {home?.heroTitle || ui.siteName}
+      </h1>
+      {home?.heroText && (
+        <p className="mt-4 max-w-2xl text-lg text-on-chrome-muted sm:text-xl">{home.heroText}</p>
+      )}
+    </>
+  );
 
   return (
     <>
       <JsonLd data={musicGroupJsonLd(settings)} />
 
-      <section className="relative isolate overflow-hidden bg-chrome text-on-chrome theme-dark">
-        {home?.heroImage && (
-          <>
-            <Image
-              src={home.heroImage}
-              alt={home.heroImageAlt ?? ""}
-              fill
-              preload
-              fetchPriority="high"
-              sizes="100vw"
-              className="-z-20 object-cover"
-            />
-            <div className="absolute inset-0 -z-10 bg-gradient-to-t from-chrome-deep/90 via-chrome-deep/50 to-chrome-deep/10" />
-          </>
-        )}
-        <div className="container-site flex min-h-[28rem] flex-col justify-end py-16 sm:min-h-[36rem]">
-          <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
-            {home?.heroTitle || ui.siteName}
-          </h1>
-          {home?.heroText && (
-            <p className="mt-4 max-w-2xl text-lg text-on-chrome-muted sm:text-xl">
-              {home.heroText}
-            </p>
-          )}
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/concerts"
-              className="rounded-md bg-accent px-5 py-3 font-semibold text-on-accent shadow hover:bg-accent-hover"
-            >
-              {ui.home.allConcerts}
-            </Link>
-            <Link
-              href="/qui-som"
-              className="rounded-md bg-white/10 px-5 py-3 font-semibold text-on-chrome ring-1 ring-white/40 backdrop-blur hover:bg-white/20"
-            >
-              {ui.home.explore}
-            </Link>
-          </div>
+      {home?.heroImage ? (
+        <ImageHero image={home.heroImage} imageAlt={home.heroImageAlt} fit="screen">
+          {heroText}
+        </ImageHero>
+      ) : (
+        <div className="bg-chrome text-on-chrome theme-dark">
+          <div className="container-site py-16 sm:py-24">{heroText}</div>
         </div>
-      </section>
+      )}
 
       <section aria-labelledby="upcoming" className="bg-surface py-16">
         <div className="container-site">
