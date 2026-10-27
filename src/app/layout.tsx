@@ -37,6 +37,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang={defaultLocale}
       className={`h-full antialiased ${inter.variable} ${jakarta.variable}`}
+      // Smooth scrolling only for in-page links; Next.js disables it on route changes.
+      data-scroll-behavior="smooth"
     >
       <body className="flex min-h-full flex-col">
         {children}
