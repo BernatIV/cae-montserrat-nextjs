@@ -37,6 +37,7 @@ export const ca = {
 
   home: {
     upcoming: "Pròxims concerts",
+    scrollDown: "Vés als pròxims concerts",
     noUpcoming: "Ara mateix no hi ha cap concert programat. Torneu-hi aviat!",
     recent: "Darrers concerts",
     allConcerts: "Tots els concerts",

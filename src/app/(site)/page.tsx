@@ -44,7 +44,12 @@ export default async function Home() {
       <JsonLd data={musicGroupJsonLd(settings)} />
 
       {home?.heroImage ? (
-        <ImageHero image={home.heroImage} imageAlt={home.heroImageAlt} fit="screen">
+        <ImageHero
+          image={home.heroImage}
+          imageAlt={home.heroImageAlt}
+          fit="screen"
+          next={{ href: "#upcoming", label: ui.home.scrollDown }}
+        >
           {heroText}
         </ImageHero>
       ) : (
