@@ -52,7 +52,7 @@ export default async function AudiosPage() {
       <div className="container-site space-y-14 py-12 sm:py-16">
         {[...groups.entries()].map(([key, group]) => (
           <section key={key} aria-labelledby={key}>
-            <h2 id={key} className="mb-5 text-2xl font-bold text-brand-900">
+            <h2 id={key} className="mb-5 text-2xl font-bold text-ink">
               {group.href ? (
                 <Link href={group.href} className="hover:underline">
                   {group.title}

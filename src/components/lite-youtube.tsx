@@ -38,7 +38,7 @@ export function LiteYouTube({ id, title }: { id: string; title: string }) {
             unoptimized
             className="object-cover opacity-90 transition-opacity group-hover:opacity-100"
           />
-          <span className="absolute top-1/2 left-1/2 flex h-12 w-17 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl bg-red-600 shadow-lg transition-transform group-hover:scale-110">
+          <span className="absolute top-1/2 left-1/2 flex h-12 w-17 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl bg-youtube shadow-lg transition-transform group-hover:scale-110">
             <svg viewBox="0 0 24 24" fill="white" aria-hidden="true" className="size-7">
               <path d="M8 5v14l11-7z" />
             </svg>

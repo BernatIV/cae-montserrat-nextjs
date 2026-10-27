@@ -104,7 +104,7 @@ function ContentLink({
 function ContentTable({ children }: { children: ReactNode }) {
   return (
     <div className="not-prose my-6 overflow-x-auto">
-      <table className="w-full border-collapse text-left text-sm [&_td]:border-b [&_td]:border-slate-200 [&_td]:px-3 [&_td]:py-2 [&_th]:border-b-2 [&_th]:border-brand-700 [&_th]:px-3 [&_th]:py-2 [&_th]:font-semibold">
+      <table className="w-full border-collapse text-left text-sm [&_td]:border-b [&_td]:border-line [&_td]:px-3 [&_td]:py-2 [&_th]:border-b-2 [&_th]:border-ink [&_th]:px-3 [&_th]:py-2 [&_th]:font-semibold [&_th]:text-ink">
         {children}
       </table>
     </div>
@@ -130,7 +130,7 @@ type MarkdocContentProps = {
 
 /** Typography for rich text (the @tailwindcss/typography plugin, themed in globals.css). */
 export const proseClass =
-  "prose prose-slate max-w-none prose-headings:font-display prose-headings:text-brand-900 prose-a:text-brand-700 prose-a:underline-offset-2 hover:prose-a:text-brand-900 prose-img:my-6";
+  "prose prose-site max-w-none prose-headings:font-display prose-a:underline-offset-2 hover:prose-a:text-primary-hover prose-img:my-6";
 
 /** Renders a Keystatic Markdoc body with the site typography. */
 export function MarkdocContent({ node, className = "" }: MarkdocContentProps) {

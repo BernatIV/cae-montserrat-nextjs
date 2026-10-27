@@ -10,7 +10,7 @@ const endpoint = "https://api.web3forms.com/submit";
 type Status = "idle" | "sending" | "success" | "error";
 
 const fieldClass =
-  "mt-1 block w-full rounded-md border border-slate-400 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-brand-600 focus:ring-2 focus:ring-brand-600/30 focus:outline-none";
+  "mt-1 block w-full rounded-md border border-line-strong bg-white px-3 py-2 text-ink shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/30 focus:outline-none";
 
 /**
  * Contact form sent to Web3Forms (see ADR 0004). Without an access key
@@ -21,9 +21,9 @@ export function ContactForm({ email, accessKey }: { email: string; accessKey?: s
 
   if (!accessKey) {
     return (
-      <p className="rounded-lg bg-brand-50 p-4 text-slate-800">
+      <p className="rounded-lg bg-primary-soft p-4 text-fg">
         {ui.contact.unavailable}{" "}
-        <a href={`mailto:${email}`} className="font-semibold text-brand-700 underline">
+        <a href={`mailto:${email}`} className="font-semibold text-primary underline">
           {email}
         </a>
         .
@@ -57,7 +57,7 @@ export function ContactForm({ email, accessKey }: { email: string; accessKey?: s
   }
 
   const required = (
-    <span className="text-red-700" aria-hidden="true">
+    <span className="text-danger" aria-hidden="true">
       {" "}
       *
     </span>
@@ -66,23 +66,23 @@ export function ContactForm({ email, accessKey }: { email: string; accessKey?: s
   return (
     <form onSubmit={onSubmit} className="space-y-5" aria-describedby="contact-status">
       <div className="grid gap-5 sm:grid-cols-2">
-        <label className="block text-sm font-medium text-slate-800">
+        <label className="block text-sm font-medium text-fg">
           {ui.contact.name}
           {required}
           <input name="name" type="text" required autoComplete="name" className={fieldClass} />
         </label>
-        <label className="block text-sm font-medium text-slate-800">
+        <label className="block text-sm font-medium text-fg">
           {ui.contact.email}
           {required}
           <input name="email" type="email" required autoComplete="email" className={fieldClass} />
         </label>
       </div>
-      <label className="block text-sm font-medium text-slate-800">
+      <label className="block text-sm font-medium text-fg">
         {ui.contact.subject}
         {required}
         <input name="subject" type="text" required className={fieldClass} />
       </label>
-      <label className="block text-sm font-medium text-slate-800">
+      <label className="block text-sm font-medium text-fg">
         {ui.contact.message}
         {required}
         <textarea name="message" required rows={6} className={fieldClass} />
@@ -96,11 +96,11 @@ export function ContactForm({ email, accessKey }: { email: string; accessKey?: s
         autoComplete="off"
         aria-hidden="true"
       />
-      <label className="flex items-start gap-2 text-sm text-slate-800">
-        <input type="checkbox" name="privacy" required className="mt-1 size-4 accent-brand-700" />
+      <label className="flex items-start gap-2 text-sm text-fg">
+        <input type="checkbox" name="privacy" required className="mt-1 size-4 accent-primary" />
         <span>
           {ui.contact.privacy}{" "}
-          <Link href="/politica-de-privacitat" className="text-brand-700 underline">
+          <Link href="/politica-de-privacitat" className="text-primary underline">
             {ui.contact.privacyLink}
           </Link>
           .{required}
@@ -109,15 +109,15 @@ export function ContactForm({ email, accessKey }: { email: string; accessKey?: s
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex items-center rounded-md bg-brand-700 px-6 py-3 font-semibold text-white shadow-sm hover:bg-brand-800 disabled:opacity-60"
+        className="inline-flex items-center rounded-md bg-primary px-6 py-3 font-semibold text-on-primary shadow-sm hover:bg-primary-hover disabled:opacity-60"
       >
         {status === "sending" ? ui.contact.sending : ui.contact.send}
       </button>
       <p id="contact-status" role="status" aria-live="polite" className="text-sm">
         {status === "success" && (
-          <span className="font-medium text-green-800">{ui.contact.success}</span>
+          <span className="font-medium text-success">{ui.contact.success}</span>
         )}
-        {status === "error" && <span className="font-medium text-red-800">{ui.contact.error}</span>}
+        {status === "error" && <span className="font-medium text-danger">{ui.contact.error}</span>}
       </p>
     </form>
   );

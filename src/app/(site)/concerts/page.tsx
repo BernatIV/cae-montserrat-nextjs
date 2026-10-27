@@ -27,7 +27,7 @@ export default async function ConcertsPage() {
 
       <section aria-labelledby="proxims" className="bg-surface py-12">
         <div className="container-site">
-          <h2 id="proxims" className="mb-6 text-2xl font-bold text-brand-900">
+          <h2 id="proxims" className="mb-6 text-2xl font-bold text-ink">
             {ui.concerts.upcoming}
           </h2>
           <UpcomingFilter
@@ -36,17 +36,17 @@ export default async function ConcertsPage() {
               date: concert.date,
               node: <ConcertCard concert={concert} />,
             }))}
-            empty={<p className="text-slate-700">{ui.home.noUpcoming}</p>}
+            empty={<p className="text-fg">{ui.home.noUpcoming}</p>}
           />
         </div>
       </section>
 
       <section aria-labelledby="historial" className="py-12">
         <div className="container-site">
-          <h2 id="historial" className="mb-2 text-2xl font-bold text-brand-900">
+          <h2 id="historial" className="mb-2 text-2xl font-bold text-ink">
             {ui.concerts.past}
           </h2>
-          <p className="mb-6 text-slate-600">{ui.concerts.count(past.length)}</p>
+          <p className="mb-6 text-fg-muted">{ui.concerts.count(past.length)}</p>
 
           <nav aria-label={ui.concerts.decadeNav} className="mb-10">
             <ul className="flex flex-wrap gap-2">
@@ -54,7 +54,7 @@ export default async function ConcertsPage() {
                 <li key={decadeId(decade)}>
                   <a
                     href={`#${decadeId(decade)}`}
-                    className="inline-block rounded-full bg-brand-50 px-4 py-1.5 text-sm font-medium text-brand-800 ring-1 ring-brand-200 hover:bg-brand-100"
+                    className="inline-block rounded-full bg-primary-soft px-4 py-1.5 text-sm font-medium text-primary-hover ring-1 ring-primary-line hover:bg-primary-line"
                   >
                     {decade === null ? ui.concerts.noDate : decade}
                   </a>
@@ -68,14 +68,14 @@ export default async function ConcertsPage() {
               <section key={decadeId(decade)} aria-labelledby={decadeId(decade)}>
                 <h3
                   id={decadeId(decade)}
-                  className="mb-2 border-b-2 border-brand-700 pb-2 text-xl font-bold text-brand-900"
+                  className="mb-2 border-b-2 border-ink pb-2 text-xl font-bold text-ink"
                 >
                   {decade === null ? ui.concerts.noDate : ui.concerts.decade(decade)}{" "}
-                  <span className="text-base font-normal text-slate-600">
+                  <span className="text-base font-normal text-fg-muted">
                     ({ui.concerts.count(items.length)})
                   </span>
                 </h3>
-                <ul className="divide-y divide-slate-200">
+                <ul className="divide-y divide-line">
                   {items.map((concert) => (
                     <ConcertRow key={concert.slug} concert={concert} />
                   ))}

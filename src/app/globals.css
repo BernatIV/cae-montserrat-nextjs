@@ -2,23 +2,52 @@
 @plugin "@tailwindcss/typography";
 
 /*
- * Design tokens. Brand blue comes from the choir logo (#060097).
- * All text/background pairs used on the site meet WCAG AA contrast.
+ * Design system. Colours are semantic: pick a token by its role, not by its hue.
+ * Tailwind's default palette is disabled, so only these tokens exist.
+ *
+ * - chrome:  dark, neutral frame of the site (header, footer, page headers, hero).
+ *            The logo is white, so the frame must be dark.
+ * - primary: the brand blue, reserved for interactive elements (links, buttons,
+ *            active states, date badges). Never use it for large backgrounds.
+ * - accent:  gold, only for highlights on chrome (active nav item, eyebrow, hero CTA).
+ * - ink / fg / fg-muted: headings, body text, secondary text.
+ * - surface / line: light backgrounds for alternating sections and borders.
+ *
+ * Every text/background pair used on the site meets WCAG AA contrast.
  */
 @theme {
-  --color-brand-50: #f3f2ff;
-  --color-brand-100: #e6e4ff;
-  --color-brand-200: #cbc7ff;
-  --color-brand-300: #a29bff;
-  --color-brand-500: #3d33d6;
-  --color-brand-600: #2117b8;
-  --color-brand-700: #060097;
-  --color-brand-800: #05007a;
-  --color-brand-900: #0b0954;
-  --color-brand-950: #070533;
-  --color-accent-300: #ffdf8f;
-  --color-accent-400: #ffcd57;
-  --color-surface: #f6f5fb;
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-chrome: #161a33;
+  --color-chrome-deep: #0e1124;
+  --color-on-chrome: #ffffff;
+  --color-on-chrome-muted: #c3c6d8;
+
+  --color-primary: #2a1fbf;
+  --color-primary-hover: #060097;
+  --color-primary-soft: #eeedff;
+  --color-primary-line: #c9c5ff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-muted: #d4d1ff;
+
+  --color-accent: #f0b43c;
+  --color-accent-hover: #f6c968;
+  --color-on-accent: #0e1124;
+
+  --color-ink: #161a33;
+  --color-fg: #2d3142;
+  --color-fg-muted: #595d6f;
+
+  --color-canvas: #ffffff;
+  --color-surface: #f6f4ef;
+  --color-line: #e2dfd6;
+  --color-line-strong: #8a8c99;
+
+  --color-success: #1d6b3a;
+  --color-danger: #b42318;
+  --color-youtube: #ff0033;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -37,7 +66,7 @@
   }
 
   body {
-    @apply bg-white font-sans text-slate-800;
+    @apply bg-canvas font-sans text-fg;
   }
 
   h1,
@@ -48,8 +77,18 @@
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-brand-500;
+    outline: 2px solid var(--focus-ring, var(--color-primary));
+    outline-offset: 2px;
   }
+}
+
+/* Mark dark (chrome) areas so focus rings stay visible; `theme-light` resets it inside them. */
+@utility theme-dark {
+  --focus-ring: var(--color-accent);
+}
+
+@utility theme-light {
+  --focus-ring: var(--color-primary);
 }
 
 @utility container-site {
@@ -58,4 +97,24 @@
 
 @utility container-prose {
   @apply mx-auto w-full max-w-3xl px-4 sm:px-6;
+}
+
+/* Typography plugin colours mapped to the tokens (unlayered so it wins over `.prose`). */
+.prose-site {
+  --tw-prose-body: var(--color-fg);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-lead: var(--color-fg-muted);
+  --tw-prose-links: var(--color-primary);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-counters: var(--color-fg-muted);
+  --tw-prose-bullets: var(--color-line-strong);
+  --tw-prose-hr: var(--color-line);
+  --tw-prose-quotes: var(--color-ink);
+  --tw-prose-quote-borders: var(--color-accent);
+  --tw-prose-captions: var(--color-fg-muted);
+  --tw-prose-code: var(--color-ink);
+  --tw-prose-pre-code: var(--color-on-chrome);
+  --tw-prose-pre-bg: var(--color-chrome);
+  --tw-prose-th-borders: var(--color-ink);
+  --tw-prose-td-borders: var(--color-line);
 }

@@ -19,10 +19,10 @@ export async function SiteHeader() {
   }));
 
   return (
-    <header className="sticky top-0 z-40 bg-brand-700 text-white shadow-md">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-chrome text-on-chrome shadow-md theme-dark">
       <a
         href="#contingut"
-        className="sr-only rounded-md bg-white px-4 py-2 font-semibold text-brand-800 focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50"
+        className="sr-only rounded-md bg-white px-4 py-2 font-semibold text-ink theme-light focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50"
       >
         {ui.skipToContent}
       </a>

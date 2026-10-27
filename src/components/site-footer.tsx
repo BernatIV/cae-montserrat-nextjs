@@ -9,10 +9,10 @@ export async function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto bg-brand-950 text-brand-100">
+    <footer className="mt-auto bg-chrome-deep text-on-chrome-muted theme-dark">
       <div className="container-site grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-3">
         <section aria-labelledby="footer-contact">
-          <h2 id="footer-contact" className="mb-3 text-lg font-semibold text-white">
+          <h2 id="footer-contact" className="mb-3 text-lg font-semibold text-on-chrome">
             {ui.footer.contact}
           </h2>
           <address className="space-y-2 not-italic">
@@ -21,7 +21,7 @@ export async function SiteFooter() {
               <p>
                 <a
                   href={`mailto:${contact.email}`}
-                  className="underline underline-offset-2 hover:text-white"
+                  className="underline underline-offset-2 hover:text-on-chrome"
                 >
                   {contact.email}
                 </a>
@@ -29,7 +29,10 @@ export async function SiteFooter() {
             )}
             {contact.phone && (
               <p>
-                <a href={`tel:${contact.phone.replace(/\s+/g, "")}`} className="hover:text-white">
+                <a
+                  href={`tel:${contact.phone.replace(/\s+/g, "")}`}
+                  className="hover:text-on-chrome"
+                >
                   {contact.phone}
                 </a>
               </p>
@@ -39,7 +42,7 @@ export async function SiteFooter() {
 
         {social.length > 0 && (
           <section aria-labelledby="footer-social">
-            <h2 id="footer-social" className="mb-3 text-lg font-semibold text-white">
+            <h2 id="footer-social" className="mb-3 text-lg font-semibold text-on-chrome">
               {ui.footer.follow}
             </h2>
             <ul className="space-y-2">
@@ -48,7 +51,7 @@ export async function SiteFooter() {
                   <a
                     href={item.url}
                     rel="me noopener"
-                    className="underline underline-offset-2 hover:text-white"
+                    className="underline underline-offset-2 hover:text-on-chrome"
                   >
                     {ui.social[item.network]}
                   </a>
@@ -59,13 +62,16 @@ export async function SiteFooter() {
         )}
 
         <section aria-labelledby="footer-legal">
-          <h2 id="footer-legal" className="mb-3 text-lg font-semibold text-white">
+          <h2 id="footer-legal" className="mb-3 text-lg font-semibold text-on-chrome">
             {ui.footer.legal}
           </h2>
           <ul className="space-y-2">
             {ui.footer.legalLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="underline underline-offset-2 hover:text-white">
+                <Link
+                  href={link.href}
+                  className="underline underline-offset-2 hover:text-on-chrome"
+                >
                   {link.label}
                 </Link>
               </li>
@@ -74,9 +80,9 @@ export async function SiteFooter() {
         </section>
       </div>
       <div className="border-t border-white/10">
-        <div className="container-site flex flex-wrap items-center justify-between gap-2 py-4 text-sm text-brand-200">
+        <div className="container-site flex flex-wrap items-center justify-between gap-2 py-4 text-sm text-on-chrome-muted">
           <p>{ui.footer.copyright(year)}</p>
-          <Link href="/keystatic" prefetch={false} rel="nofollow" className="hover:text-white">
+          <Link href="/keystatic" prefetch={false} rel="nofollow" className="hover:text-on-chrome">
             {ui.footer.keystatic}
           </Link>
         </div>

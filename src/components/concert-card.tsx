@@ -21,10 +21,10 @@ function DateBadge({ date }: { date: string | null }) {
   const parts = dateParts(date);
   if (!parts) return null;
   return (
-    <span className="flex w-16 shrink-0 flex-col items-center rounded-md bg-brand-700 px-2 py-1.5 text-center leading-none text-white">
+    <span className="flex w-16 shrink-0 flex-col items-center rounded-md bg-primary px-2 py-1.5 text-center leading-none text-on-primary">
       <span className="text-2xl font-bold">{parts.day}</span>
       <span className="mt-1 text-xs uppercase">{parts.month}</span>
-      <span className="mt-1 text-xs text-brand-200">{parts.year}</span>
+      <span className="mt-1 text-xs text-on-primary-muted">{parts.year}</span>
     </span>
   );
 }
@@ -40,8 +40,8 @@ export function ConcertCard({
   const Heading = `h${headingLevel}` as const;
   const place = joinParts([concert.location, concert.city]);
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200 transition-shadow hover:shadow-lg">
-      <div className="relative aspect-[4/3] bg-brand-100">
+    <article className="group relative flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-line transition-shadow hover:shadow-lg">
+      <div className="relative aspect-[4/3] bg-surface">
         {concert.poster ? (
           <Image
             src={concert.poster}
@@ -51,7 +51,7 @@ export function ConcertCard({
             className="object-cover"
           />
         ) : (
-          <div className="flex size-full items-center justify-center bg-gradient-to-br from-brand-700 to-brand-900">
+          <div className="flex size-full items-center justify-center bg-gradient-to-br from-chrome to-chrome-deep">
             <Image
               src="/images/logo-caem.webp"
               alt=""
@@ -65,7 +65,7 @@ export function ConcertCard({
       <div className="flex flex-1 gap-4 p-5">
         <DateBadge date={concert.date} />
         <div className="min-w-0">
-          <Heading className="text-lg font-semibold text-brand-900">
+          <Heading className="text-lg font-semibold text-ink">
             <Link
               href={`/concerts/${concert.slug}`}
               className="after:absolute after:inset-0 hover:underline"
@@ -73,8 +73,8 @@ export function ConcertCard({
               {concert.title}
             </Link>
           </Heading>
-          {place && <p className="mt-1 text-sm text-slate-600">{place}</p>}
-          {concert.time && <p className="text-sm text-slate-600">{concert.time} h</p>}
+          {place && <p className="mt-1 text-sm text-fg-muted">{place}</p>}
+          {concert.time && <p className="text-sm text-fg-muted">{concert.time} h</p>}
         </div>
       </div>
     </article>
@@ -86,7 +86,7 @@ export function ConcertRow({ concert }: { concert: ConcertSummary }) {
   const place = joinParts([concert.location, concert.city]);
   return (
     <li className="relative flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-6">
-      <span className="w-44 shrink-0 text-sm font-medium text-brand-700 tabular-nums">
+      <span className="w-44 shrink-0 text-sm font-medium text-primary tabular-nums">
         {concert.date ? (
           <time dateTime={concert.date}>{formatDate(concert.date)}</time>
         ) : (
@@ -96,11 +96,11 @@ export function ConcertRow({ concert }: { concert: ConcertSummary }) {
       <span className="min-w-0">
         <Link
           href={`/concerts/${concert.slug}`}
-          className="font-semibold text-slate-900 after:absolute after:inset-0 hover:text-brand-700 hover:underline"
+          className="font-semibold text-ink after:absolute after:inset-0 hover:text-primary hover:underline"
         >
           {concert.title}
         </Link>
-        {place && <span className="block text-sm text-slate-600">{place}</span>}
+        {place && <span className="block text-sm text-fg-muted">{place}</span>}
       </span>
     </li>
   );

@@ -31,7 +31,7 @@ export default async function AnniversaryPage() {
       {page.concerts.length > 0 && (
         <section aria-labelledby="concerts-75" className="bg-surface py-12 sm:py-16">
           <div className="container-site">
-            <h2 id="concerts-75" className="mb-8 text-2xl font-bold text-brand-900">
+            <h2 id="concerts-75" className="mb-8 text-2xl font-bold text-ink">
               {ui.anniversary.concerts}
             </h2>
             <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -33,7 +33,7 @@ export default async function Home() {
     <>
       <JsonLd data={musicGroupJsonLd(settings)} />
 
-      <section className="relative isolate overflow-hidden bg-brand-900 text-white">
+      <section className="relative isolate overflow-hidden bg-chrome text-on-chrome theme-dark">
         {home?.heroImage && (
           <>
             <Image
@@ -45,7 +45,7 @@ export default async function Home() {
               sizes="100vw"
               className="-z-20 object-cover"
             />
-            <div className="absolute inset-0 -z-10 bg-gradient-to-t from-brand-950/90 via-brand-950/50 to-brand-950/10" />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-t from-chrome-deep/90 via-chrome-deep/50 to-chrome-deep/10" />
           </>
         )}
         <div className="container-site flex min-h-[28rem] flex-col justify-end py-16 sm:min-h-[36rem]">
@@ -53,18 +53,20 @@ export default async function Home() {
             {home?.heroTitle || ui.siteName}
           </h1>
           {home?.heroText && (
-            <p className="mt-4 max-w-2xl text-lg text-brand-100 sm:text-xl">{home.heroText}</p>
+            <p className="mt-4 max-w-2xl text-lg text-on-chrome-muted sm:text-xl">
+              {home.heroText}
+            </p>
           )}
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/concerts"
-              className="rounded-md bg-accent-400 px-5 py-3 font-semibold text-brand-950 shadow hover:bg-accent-300"
+              className="rounded-md bg-accent px-5 py-3 font-semibold text-on-accent shadow hover:bg-accent-hover"
             >
               {ui.home.allConcerts}
             </Link>
             <Link
               href="/qui-som"
-              className="rounded-md bg-white/10 px-5 py-3 font-semibold text-white ring-1 ring-white/40 backdrop-blur hover:bg-white/20"
+              className="rounded-md bg-white/10 px-5 py-3 font-semibold text-on-chrome ring-1 ring-white/40 backdrop-blur hover:bg-white/20"
             >
               {ui.home.explore}
             </Link>
@@ -74,7 +76,7 @@ export default async function Home() {
 
       <section aria-labelledby="upcoming" className="bg-surface py-16">
         <div className="container-site">
-          <h2 id="upcoming" className="mb-8 text-3xl font-bold text-brand-900">
+          <h2 id="upcoming" className="mb-8 text-3xl font-bold text-ink">
             {ui.home.upcoming}
           </h2>
           <UpcomingFilter
@@ -83,7 +85,7 @@ export default async function Home() {
               date: concert.date,
               node: <ConcertCard concert={concert} />,
             }))}
-            empty={<p className="text-lg text-slate-700">{ui.home.noUpcoming}</p>}
+            empty={<p className="text-lg text-fg">{ui.home.noUpcoming}</p>}
           />
         </div>
       </section>
@@ -92,12 +94,12 @@ export default async function Home() {
         <section aria-labelledby="recent" className="py-16">
           <div className="container-site">
             <div className="mb-8 flex flex-wrap items-baseline justify-between gap-4">
-              <h2 id="recent" className="text-3xl font-bold text-brand-900">
+              <h2 id="recent" className="text-3xl font-bold text-ink">
                 {ui.home.recent}
               </h2>
               <Link
                 href="/concerts"
-                className="font-semibold text-brand-700 underline underline-offset-4"
+                className="font-semibold text-primary underline underline-offset-4"
               >
                 {ui.home.allConcerts}
               </Link>
@@ -119,9 +121,9 @@ export default async function Home() {
         </section>
       )}
 
-      <section aria-labelledby="explore" className="bg-brand-700 py-16 text-white">
+      <section aria-labelledby="explore" className="border-t border-line bg-surface py-16">
         <div className="container-site">
-          <h2 id="explore" className="mb-8 text-3xl font-bold">
+          <h2 id="explore" className="mb-8 text-3xl font-bold text-ink">
             {ui.home.explore}
           </h2>
           <ul className="grid gap-6 sm:grid-cols-3">
@@ -129,10 +131,12 @@ export default async function Home() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="block h-full rounded-xl bg-white/10 p-6 ring-1 ring-white/20 transition-colors hover:bg-white/20"
+                  className="group block h-full rounded-xl bg-white p-6 shadow-sm ring-1 ring-line transition hover:shadow-md hover:ring-primary"
                 >
-                  <span className="block font-display text-xl font-semibold">{link.label}</span>
-                  <span className="mt-2 block text-brand-100">{link.text}</span>
+                  <span className="block font-display text-xl font-semibold text-ink group-hover:text-primary">
+                    {link.label}
+                  </span>
+                  <span className="mt-2 block text-fg-muted">{link.text}</span>
                 </Link>
               </li>
             ))}

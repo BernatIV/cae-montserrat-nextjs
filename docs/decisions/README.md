@@ -25,3 +25,4 @@ Cada decisió important es registra en un fitxer numerat `NNNN-titol.md` amb aqu
 | [0009](0009-model-contingut.md)    | Model de contingut de Keystatic                         | Acceptada |
 | [0010](0010-migracio-wordpress.md) | Migració de WordPress amb scripts propis                | Acceptada |
 | [0011](0011-disseny-i-rutes.md)    | Disseny, rutes i renderització de les pàgines           | Acceptada |
+| [0012](0012-sistema-de-colors.md)  | Sistema de colors semàntic                              | Acceptada |

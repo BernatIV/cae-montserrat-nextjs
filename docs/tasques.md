@@ -44,7 +44,7 @@ Llegenda: `[ ]` pendent · `[~]` en curs · `[x]` feta · `[!]` bloquejada (cal 
 
 ## Fase 4 – Disseny i pàgines
 
-- [x] **F4-1** Sistema de disseny: paleta, tipografia, espaiats, components base (ADR 0011)
+- [x] **F4-1** Sistema de disseny: paleta, tipografia, espaiats, components base (ADR 0011); colors semàntics (ADR 0012)
 - [x] **F4-2** Capçalera amb menú responsive (amb submenús) i peu de pàgina
 - [x] **F4-3** Components: galeria amb lightbox, reproductor d'àudio, incrustació de YouTube (lite), taula
 - [x] **F4-4** Pàgina d'inici

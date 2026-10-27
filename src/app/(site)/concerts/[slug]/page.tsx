@@ -50,7 +50,7 @@ function Section({
 }) {
   return (
     <section aria-labelledby={id} className="mt-12 first:mt-0">
-      <h2 id={id} className="mb-4 text-2xl font-bold text-brand-900">
+      <h2 id={id} className="mb-4 text-2xl font-bold text-ink">
         {title}
       </h2>
       {children}
@@ -84,23 +84,23 @@ export default async function ConcertPage({ params }: PageProps<"/concerts/[slug
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem]">
           <div className="min-w-0">
             {concert.description && !hasContent(concert.body.node) && (
-              <p className="mb-8 text-xl text-slate-700">{concert.description}</p>
+              <p className="mb-8 text-xl text-fg">{concert.description}</p>
             )}
 
             <dl className="mb-10 grid gap-4 rounded-xl bg-surface p-6 sm:grid-cols-3">
               <div>
-                <dt className="text-sm font-semibold text-brand-700">{ui.concerts.date}</dt>
+                <dt className="text-sm font-semibold text-primary">{ui.concerts.date}</dt>
                 <dd>{concert.date ? formatDate(concert.date) : ui.concerts.noDate}</dd>
               </div>
               {concert.time && (
                 <div>
-                  <dt className="text-sm font-semibold text-brand-700">{ui.concerts.time}</dt>
+                  <dt className="text-sm font-semibold text-primary">{ui.concerts.time}</dt>
                   <dd>{concert.time} h</dd>
                 </div>
               )}
               {place && (
                 <div>
-                  <dt className="text-sm font-semibold text-brand-700">{ui.concerts.place}</dt>
+                  <dt className="text-sm font-semibold text-primary">{ui.concerts.place}</dt>
                   <dd>{place}</dd>
                 </div>
               )}
@@ -108,13 +108,13 @@ export default async function ConcertPage({ params }: PageProps<"/concerts/[slug
 
             {program.length > 0 && (
               <Section id="programa" title={ui.concerts.program}>
-                <ol className="divide-y divide-slate-200 rounded-xl ring-1 ring-slate-200">
+                <ol className="divide-y divide-line rounded-xl ring-1 ring-line">
                   {program.map((item, i) => (
                     <li key={i} className="px-5 py-3">
-                      <span className="font-semibold text-slate-900">{item.work}</span>
-                      {item.composer && <span className="text-slate-600"> — {item.composer}</span>}
+                      <span className="font-semibold text-ink">{item.work}</span>
+                      {item.composer && <span className="text-fg-muted"> — {item.composer}</span>}
                       {item.notes && (
-                        <span className="block text-sm text-slate-600">{item.notes}</span>
+                        <span className="block text-sm text-fg-muted">{item.notes}</span>
                       )}
                     </li>
                   ))}
@@ -165,7 +165,7 @@ export default async function ConcertPage({ params }: PageProps<"/concerts/[slug
             )}
             <Link
               href="/concerts"
-              className="inline-block font-semibold text-brand-700 underline underline-offset-4"
+              className="inline-block font-semibold text-primary underline underline-offset-4"
             >
               ← {ui.concerts.backToList}
             </Link>

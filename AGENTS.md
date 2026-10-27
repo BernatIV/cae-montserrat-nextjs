@@ -61,7 +61,7 @@ Do not add new services, databases or paid dependencies without a new ADR in `do
 - Prefer Server Components. Use `"use client"` only when interactivity requires it.
 - Public pages live in the `src/app/(site)/` route group (shared header/footer layout); the root layout stays minimal so `/keystatic` is not wrapped. All pages are static (SSG, `dynamicParams = false`); see ADR 0011.
 - Render Markdoc bodies with `MarkdocContent` from `src/components/markdoc.tsx`. Build page metadata with `pageMetadata()` from `src/lib/seo.ts`; dates with `src/lib/format.ts`.
-- Design tokens (`brand-*`, `accent-*`, `surface`, `container-site`, `container-prose`) are defined in `src/app/globals.css`; reuse them instead of arbitrary colours.
+- Design tokens live in `src/app/globals.css` (ADR 0012). Colours are semantic and Tailwind's default palette is disabled: `chrome` for the dark site frame, `primary` (brand blue) only for interactive elements, `accent` (gold) only for highlights on chrome, `ink`/`fg`/`fg-muted` for text, `surface`/`line` for backgrounds and borders. Add `theme-dark` to dark areas (gold focus ring). Use `container-site`/`container-prose` for layout. Never use raw hex or default Tailwind colours.
 - Read content only through the helpers in `src/lib/content` (add new helpers there, with tests). Never hard-code page content in components.
 - The content model lives in `keystatic.config.ts`. When you change it, update `docs/contingut.md`, the test fixtures in `src/lib/content/__fixtures__` and any affected content files in the same commit. Content files are written by Keystatic: don't run Prettier on `content/`.
 - Keystatic uses local mode only in development (it has no auth); production always uses GitHub mode (ADR 0009).

@@ -51,7 +51,7 @@ export function Gallery({ images }: { images: readonly GalleryImage[] }) {
             <button
               type="button"
               onClick={() => open(i)}
-              className="group relative block aspect-square w-full overflow-hidden rounded-md bg-slate-100"
+              className="group relative block aspect-square w-full overflow-hidden rounded-md bg-surface"
               aria-label={ui.gallery.open(item.alt)}
             >
               <Image
@@ -69,13 +69,13 @@ export function Gallery({ images }: { images: readonly GalleryImage[] }) {
       <dialog
         ref={dialogRef}
         aria-label={current?.alt}
-        className="m-auto h-dvh max-h-none w-screen max-w-none bg-transparent p-0 backdrop:bg-black/90"
+        className="m-auto h-dvh max-h-none w-screen max-w-none bg-transparent p-0 theme-dark backdrop:bg-black/90"
         onClick={(event) => {
           if (event.target === event.currentTarget) close();
         }}
       >
         {current && (
-          <div className="flex h-full flex-col items-center justify-center gap-3 p-4 text-white">
+          <div className="flex h-full flex-col items-center justify-center gap-3 p-4 text-on-chrome">
             <div className="flex w-full items-center justify-between gap-4">
               <p className="text-sm" aria-live="polite">
                 {ui.gallery.position((index ?? 0) + 1, total)}
@@ -101,7 +101,7 @@ export function Gallery({ images }: { images: readonly GalleryImage[] }) {
                 />
               </div>
               {current.caption && (
-                <figcaption className="mt-2 text-center text-sm text-slate-200">
+                <figcaption className="mt-2 text-center text-sm text-on-chrome-muted">
                   {current.caption}
                 </figcaption>
               )}

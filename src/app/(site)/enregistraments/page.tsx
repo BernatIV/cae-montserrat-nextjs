@@ -41,12 +41,14 @@ export default async function RecordingsPage() {
             <li key={section.href}>
               <Link
                 href={section.href}
-                className="block h-full rounded-xl bg-brand-700 p-8 text-white shadow-md transition-colors hover:bg-brand-800"
+                className="group block h-full rounded-xl bg-white p-8 shadow-sm ring-1 ring-line transition hover:shadow-md hover:ring-primary"
               >
-                <span className="block font-display text-2xl font-bold">{section.title}</span>
-                <span className="mt-2 block text-brand-100">{section.text}</span>
+                <span className="block font-display text-2xl font-bold text-ink group-hover:text-primary">
+                  {section.title}
+                </span>
+                <span className="mt-2 block text-fg-muted">{section.text}</span>
                 <span
-                  className="mt-6 inline-block font-semibold text-accent-400"
+                  className="mt-6 inline-block font-semibold text-primary transition-transform group-hover:translate-x-1"
                   aria-hidden="true"
                 >
                   →

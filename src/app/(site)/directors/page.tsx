@@ -26,9 +26,9 @@ export default async function DirectorsPage() {
             <li key={director.slug} className="flex">
               <article
                 aria-labelledby={`director-${director.slug}`}
-                className="flex w-full flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200"
+                className="flex w-full flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-line"
               >
-                <div className="relative aspect-[4/3] bg-brand-100">
+                <div className="relative aspect-[4/3] bg-surface">
                   {director.photo && (
                     <Image
                       src={director.photo}
@@ -40,11 +40,11 @@ export default async function DirectorsPage() {
                   )}
                 </div>
                 <div className="p-6">
-                  <h2 id={`director-${director.slug}`} className="text-xl font-bold text-brand-900">
+                  <h2 id={`director-${director.slug}`} className="text-xl font-bold text-ink">
                     {director.name}
                   </h2>
                   {director.period && (
-                    <p className="mt-1 font-semibold text-brand-700">{director.period}</p>
+                    <p className="mt-1 font-semibold text-primary">{director.period}</p>
                   )}
                   <MarkdocContent node={director.body.node} className="prose-sm mt-4" />
                 </div>

@@ -47,10 +47,10 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
     return () => document.removeEventListener("pointerdown", onPointer);
   }, [open]);
 
-  const linkClass = `block rounded-md px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors hover:bg-white/10 hover:text-white ${
+  const linkClass = `block rounded-md px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors hover:bg-white/10 hover:text-on-chrome ${
     active
-      ? "text-white underline decoration-accent-400 decoration-2 underline-offset-8"
-      : "text-brand-100"
+      ? "text-on-chrome underline decoration-accent decoration-2 underline-offset-8"
+      : "text-on-chrome-muted"
   }`;
 
   if (item.children.length === 0) {
@@ -90,7 +90,7 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
       </Link>
       <button
         type="button"
-        className="rounded-md p-1 text-brand-100 hover:bg-white/10 hover:text-white"
+        className="rounded-md p-1 text-on-chrome-muted hover:bg-white/10 hover:text-on-chrome"
         aria-expanded={open}
         aria-controls={submenuId}
         aria-label={ui.nav.submenu(item.label)}
@@ -100,7 +100,7 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
       </button>
       <ul
         id={submenuId}
-        className={`absolute top-full left-0 z-50 min-w-60 rounded-lg bg-white p-2 shadow-xl ring-1 ring-black/5 group-hover:block ${
+        className={`absolute top-full left-0 z-50 min-w-60 rounded-lg bg-white p-2 shadow-xl ring-1 ring-black/5 theme-light group-hover:block ${
           open ? "block" : "hidden"
         }`}
       >
@@ -108,10 +108,8 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
           <li key={child.href}>
             <Link
               href={child.href}
-              className={`block rounded-md px-3 py-2 text-sm hover:bg-brand-50 hover:text-brand-800 ${
-                isActivePath(child.href, pathname)
-                  ? "font-semibold text-brand-700"
-                  : "text-slate-700"
+              className={`block rounded-md px-3 py-2 text-sm hover:bg-primary-soft hover:text-primary-hover ${
+                isActivePath(child.href, pathname) ? "font-semibold text-primary" : "text-fg"
               }`}
               aria-current={pathname === child.href ? "page" : undefined}
               onClick={() => setOpen(false)}
@@ -147,7 +145,7 @@ export function MainNav({ items }: { items: readonly NavItem[] }) {
 
       <button
         type="button"
-        className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-white/10 xl:hidden"
+        className="inline-flex items-center justify-center rounded-md p-2 text-on-chrome hover:bg-white/10 xl:hidden"
         aria-expanded={mobileOpen}
         aria-controls={panelId}
         onClick={() => setMobileOpen((value) => !value)}
@@ -171,7 +169,7 @@ export function MainNav({ items }: { items: readonly NavItem[] }) {
 
       <div
         id={panelId}
-        className={`absolute inset-x-0 top-full z-50 max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-white/10 bg-brand-800 shadow-xl xl:hidden ${
+        className={`absolute inset-x-0 top-full z-50 max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-white/10 bg-chrome shadow-xl xl:hidden ${
           mobileOpen ? "block" : "hidden"
         }`}
         onKeyDown={(event) => {
@@ -184,7 +182,7 @@ export function MainNav({ items }: { items: readonly NavItem[] }) {
               <Link
                 href={item.href}
                 className={`block rounded-md px-3 py-2 font-medium hover:bg-white/10 ${
-                  isActivePath(item.href, pathname) ? "text-accent-400" : "text-white"
+                  isActivePath(item.href, pathname) ? "text-accent" : "text-on-chrome"
                 }`}
                 aria-current={pathname === item.href ? "page" : undefined}
               >
@@ -197,7 +195,9 @@ export function MainNav({ items }: { items: readonly NavItem[] }) {
                       <Link
                         href={child.href}
                         className={`block rounded-md px-3 py-2 text-sm hover:bg-white/10 ${
-                          isActivePath(child.href, pathname) ? "text-accent-400" : "text-brand-100"
+                          isActivePath(child.href, pathname)
+                            ? "text-accent"
+                            : "text-on-chrome-muted"
                         }`}
                         aria-current={pathname === child.href ? "page" : undefined}
                       >

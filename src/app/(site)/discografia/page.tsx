@@ -30,7 +30,7 @@ export default async function DiscographyPage() {
               <li key={album.slug} id={album.slug} className="scroll-mt-28">
                 <article
                   aria-labelledby={`album-${album.slug}`}
-                  className="grid gap-8 border-b border-slate-200 pb-16 md:grid-cols-[18rem_minmax(0,1fr)]"
+                  className="grid gap-8 border-b border-line pb-16 md:grid-cols-[18rem_minmax(0,1fr)]"
                 >
                   <div>
                     {album.cover && (
@@ -43,11 +43,11 @@ export default async function DiscographyPage() {
                     )}
                   </div>
                   <div className="min-w-0">
-                    <h2 id={`album-${album.slug}`} className="text-2xl font-bold text-brand-900">
+                    <h2 id={`album-${album.slug}`} className="text-2xl font-bold text-ink">
                       {album.title}
                     </h2>
                     {album.year && (
-                      <p className="mt-1 font-semibold text-brand-700">
+                      <p className="mt-1 font-semibold text-primary">
                         <span className="sr-only">{ui.recordings.year}: </span>
                         {album.year}
                       </p>
@@ -57,16 +57,16 @@ export default async function DiscographyPage() {
                       <section aria-labelledby={`tracks-${album.slug}`} className="mt-8">
                         <h3
                           id={`tracks-${album.slug}`}
-                          className="mb-3 text-lg font-semibold text-brand-900"
+                          className="mb-3 text-lg font-semibold text-ink"
                         >
                           {ui.recordings.tracks}
                         </h3>
-                        <ol className="list-decimal space-y-1 pl-6 text-slate-800">
+                        <ol className="list-decimal space-y-1 pl-6 text-fg">
                           {album.tracks.map((track, i) => (
                             <li key={i}>
                               {track.title}
                               {track.composer && (
-                                <span className="text-slate-600"> — {track.composer}</span>
+                                <span className="text-fg-muted"> — {track.composer}</span>
                               )}
                             </li>
                           ))}
