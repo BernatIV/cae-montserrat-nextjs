@@ -5,13 +5,13 @@ import { getLocalImageSize } from "@/lib/images";
 type ImageHeroProps = {
   image: string;
   imageAlt?: string | null;
-  /** Tallest the image may grow: the whole viewport below the header, or most of it. */
+  /** Tallest the image may grow: most of the viewport (leaving a peek of the next section), or 70 %. */
   fit: "screen" | "large";
   children: ReactNode;
 };
 
 const maxHeight = {
-  screen: "max-h-[calc(100svh-5rem)]",
+  screen: "max-h-[calc(100svh-11rem)]",
   large: "max-h-[70svh]",
 } as const;
 
