@@ -48,7 +48,7 @@ export default async function Home() {
           image={home.heroImage}
           imageAlt={home.heroImageAlt}
           fit="screen"
-          next={{ href: "#upcoming", label: ui.home.scrollDown }}
+          next={{ href: "#proxims-concerts", label: ui.home.scrollDown }}
         >
           {heroText}
         </ImageHero>
@@ -58,7 +58,11 @@ export default async function Home() {
         </div>
       )}
 
-      <section aria-labelledby="upcoming" className="bg-surface py-16">
+      <section
+        id="proxims-concerts"
+        aria-labelledby="upcoming"
+        className="-scroll-mt-4 bg-surface py-16"
+      >
         <div className="container-site">
           <h2 id="upcoming" className="mb-8 text-3xl font-bold text-ink">
             {ui.home.upcoming}

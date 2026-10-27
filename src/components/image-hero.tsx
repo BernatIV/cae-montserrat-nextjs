@@ -76,14 +76,14 @@ export function ImageHero({ image, imageAlt, fit, next, children }: ImageHeroPro
           />
         </div>
       </div>
-      <div className="container-site flex items-end justify-between gap-6 py-8 sm:py-10">
-        <div>{children}</div>
-        {next && fit === "screen" && (
+      <div className="container-site py-8 sm:py-10">{children}</div>
+      {next && fit === "screen" && (
+        <div className="-mt-6 hidden justify-center pb-4 lg:flex">
           <a
             href={next.href}
             aria-label={next.label}
             title={next.label}
-            className="hidden shrink-0 rounded-full p-2 text-accent transition hover:text-on-chrome motion-safe:animate-bounce lg:block"
+            className="rounded-full p-2 text-accent transition hover:text-on-chrome motion-safe:animate-bounce"
           >
             <svg
               aria-hidden="true"
@@ -98,8 +98,8 @@ export function ImageHero({ image, imageAlt, fit, next, children }: ImageHeroPro
               <path d="m6 9 6 6 6-6" />
             </svg>
           </a>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
